@@ -124,15 +124,6 @@
     polkitPolicyOwners = ["sarcutus"];
   };
 
-  inputs = {
-    hy3 = {
-      owner = "outfoxxed";
-      repo = "hy3";
-      rev = "main";
-      # You can use the specific branch or tag you want
-    };
-  };
-
   programs.zsh = {
     enable = true;
     ohMyZsh.enable = true;
@@ -189,10 +180,6 @@
   services.openssh.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
-
-  nixos.lib.nixosSystem = {
-    specialArgs = {inherit inputs;};
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
