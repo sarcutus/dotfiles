@@ -26,7 +26,6 @@
   }: {
     nixosConfigurations = {
       Sarcutusdevice02 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
           {
@@ -39,6 +38,7 @@
             };
           }
           ./configuration.nix
+          ./packages.nix
           ./hyprland.nix
         ];
       };

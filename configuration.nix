@@ -11,8 +11,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # inputs.home-manager.nixosModules.home-manager
-    #       ./flake.nix
   ];
 
   swapDevices = [
@@ -20,14 +18,6 @@
       device = "/dev/nvme0n1p2";
     }
   ];
-
-  # let
-  #   home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz;
-  # in {
-  #   imports = [
-  #     (import "${home-manager}/nixos")
-  #   ]};
-
   hardware.bluetooth.enable = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -153,7 +143,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; import ./packages.nix {inherit pkgs;};
+  # environment.systemPackages = import ./packages.nix {inherit pkgs;};
 
   fonts.packages = with pkgs;
     [

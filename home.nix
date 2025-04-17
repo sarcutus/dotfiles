@@ -3,9 +3,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    ./packages.nix
-  ];
   wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package
