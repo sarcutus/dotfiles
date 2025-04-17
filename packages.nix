@@ -1,8 +1,7 @@
-{ pkgs, ... }:    
-    
-    with pkgs; [
+{pkgs, ...}: {
+  environment.systemPackages = [
     pkgs.git
-    pkgs.home-manager 
+    pkgs.home-manager
     pkgs.wlogout
     pkgs.python312
     pkgs.python313
@@ -63,21 +62,22 @@
     pkgs.jetbrains-mono
     # pkgs.nerdfonts
     pkgs.dockbarx
-    grim
-    slurp
-    wl-clipboard
-    mako
+    pkgs.grim
+    pkgs.slurp
+    pkgs.wl-clipboard
+    pkgs.mako
     pkgs.lightdm
     pkgs.xfce.xfdesktop
-    kdePackages.sddm
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.kdePackages.sddm
+    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     pkgs.easyeffects
     pkgs.nwg-dock-hyprland
-    wget
+    pkgs.wget
     pkgs.kitty
     pkgs.rio
     pkgs.hyprlandPlugins.hy3
     pkgs.hyprlandPlugins.hyprspace
     pkgs.google-chrome
     pkgs.swaylock-effects
-  ]
+  ];
+}

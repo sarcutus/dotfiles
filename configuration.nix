@@ -1,28 +1,23 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # inputs.home-manager.nixosModules.home-manager
-#       ./flake.nix
-    ];
-     
-  swapDevices = [{
-  device = "/dev/nvme0n1p2";
-}];
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-# let
-#   home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz;
-# in {
-#   imports = [
-#     (import "${home-manager}/nixos")
-#   ]};
-
+  swapDevices = [
+    {
+      device = "/dev/nvme0n1p2";
+    }
+  ];
   hardware.bluetooth.enable = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -31,11 +26,11 @@
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  
+
   networking.hostName = "Sarcutusdevice02"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -58,8 +53,8 @@
   # services.displayManager.sddm.wayland.enable = true;
 
   hardware.graphics.enable = true;
- 
-  nixpkgs.config.allowUnfree = true; 
+
+  nixpkgs.config.allowUnfree = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -67,7 +62,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  
+
   hardware.graphics.extraPackages = [
     pkgs.amdvlk
   ];
@@ -77,9 +72,9 @@
   # OR
   services.pipewire = {
     enable = true;
-   pulse.enable = true;
+    pulse.enable = true;
   };
-  
+
   services.power-profiles-daemon.enable = true;
 
   # services.fprintd.enable = true;
@@ -98,12 +93,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sarcutus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
   };
-  
+
   users.extraUsers.sarcutus = {
     shell = pkgs.zsh;
   };
@@ -112,31 +107,25 @@
   programs._1password = {
     enable = true;
   };
-  
+
   # Enable the 1Passsword GUI with myself as an authorized user for polkit
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = ["sarcutus"];
   };
-  
-  inputs = {
-          hy3 = {
-              owner = "outfoxxed";
-              repo = "hy3";
-              rev = "main";
-              # You can use the specific branch or tag you want
-          };
-        };
 
   programs.zsh = {
-  enable = true;
-  ohMyZsh.enable = true;
-  # ohMyZsh.plugins = [ "git" ];
-  ohMyZsh.theme = "random";
-  syntaxHighlighting.enable = true;
+    enable = true;
+    ohMyZsh.enable = true;
+    # ohMyZsh.plugins = [ "git" ];
+    ohMyZsh.theme = "random";
+    syntaxHighlighting.enable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   programs.zsh.autosuggestions.enable = true;
   programs.git.enable = true;
@@ -147,26 +136,28 @@
     wrapperFeatures.gtk = true;
     wrapperFeatures.base = true;
   };
-  programs.hyprland.enable = true; 
+  programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
   programs.hyprland.systemd.setPath.enable = true;
   programs.thunderbird.enable = true;
   programs.tmux.enable = true;
-  
+
   # virtualisation.vmware.host.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; import ./packages.nix { inherit pkgs; };
+  # environment.systemPackages = import ./packages.nix {inherit pkgs;};
 
-  fonts.packages = with pkgs; [
-    font-awesome
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    # nerd-fonts.JetBrainsMono
-    # nerd-fonts.NerdFontsSymbolsOnly
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = with pkgs;
+    [
+      font-awesome
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      # nerd-fonts.JetBrainsMono
+      # nerd-fonts.NerdFontsSymbolsOnly
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -183,18 +174,14 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  nixos.lib.nixosSystem = { 
-      specialArgs = { inherit inputs; };
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  
+
   # nix.settings.experimental-features = [ "nix-command" ];
-  
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
@@ -202,7 +189,7 @@
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  
+
   # Most users should NEVER change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.
   #
@@ -218,6 +205,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
-
