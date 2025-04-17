@@ -1,0 +1,116 @@
+{
+    "layer": "top",
+    "margin": 4,
+    "spacing": 8,
+    "modules-left": ["sway/workspaces", "hyprland/workspaces", "sway/mode", "sway/window", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "network", "battery", "pulseaudio", "backlight", "memory", "temperature", "tray", "power-profiles-daemon", "custom/notification", "custom/power"],
+    "hyprland/workspaces": {
+       "format": "{icon}",
+       "on-click": "activate",
+       "on-scroll-up": "hyprctl dispatch workspace e-1",
+       "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format": "{:%a, %d %b  %H:%M}",
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"calendar": {
+        "format": {
+           "months": "<span color='#ffead3'><b>{}</b></span>",
+           "today": "<span color='#ff6699'><b>{}</b></span>"
+    }
+  }
+    },
+    "pulseaudio": {
+	"format": "{volume}% {icon}",
+	"format-bluetooth": "{volume}% {icon}",
+	"format-muted": "",
+	"format-icons": {
+		"alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+		"alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+		"headphones": "",
+		"handsfree": "",
+		"headset": "",
+		"phone": "",
+		"phone-muted": "",
+		"portable": "",
+		"car": "",
+		"default": ["", ""]
+	},
+	"scroll-step": 1,
+	"on-click": "pavucontrol"
+     },
+     "cpu": {
+     "interval": 10,
+     "format": "CPU: {usage}%"
+     },
+     "backlight": {
+     "format": "{percent}% {icon}",
+     "on-scroll-up":   "brightnessctl s 1%+",
+     "on-scroll-down": "brightnessctl s 1%-",
+     "format-icons": ["", ""],
+     },
+     "custom/notification": {
+  	"tooltip": "true",
+  	"format": "{} {icon}",
+     "format-icons": {
+     	"notification": "󱅫",
+    	"none": "",
+    	"dnd-notification": " ",
+    	"dnd-none": "󰂛",
+    	"inhibited-notification": " ",
+    	"inhibited-none": "",
+    	"dnd-inhibited-notification": " ",
+    	"dnd-inhibited-none": " ",
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "sleep 0.1 && swaync-client -t -sw",
+      "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+      "escape": true,
+      },
+      "network": {
+	"format": "{ifname}",
+	"format-wifi": "{essid} ({signalStrength}%) ",
+	"format-ethernet": "{ifname} ",
+	"format-disconnected": "Disconnected",
+	"format-disconnected": "",
+	"tooltip-format": "{ifname} {ipaddr}",
+	"tooltip-format-wifi": "{essid} ({ipaddr}) ({signalStrength}%) ",
+	"tooltip-format-ethernet": "{ifname} ",
+	"tooltip-format-disconnected": "Disconnected",
+	"max-length": 50
+},
+      "tray": {
+      "spacing": 10
+      },
+      "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+      }
+},
+      "custom/power": {
+        "format": "",  
+        "tooltip": false, 
+        "on-click": "wlogout --protocol layer-shell",
+	}
+    }
+},
+  }
+}
+}	
+
