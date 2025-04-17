@@ -1,8 +1,7 @@
-{ pkgs, ... }:    
-    
-    with pkgs; [
+{pkgs, ...}: {
+  home.packages = with pkgs; [
     pkgs.git
-    pkgs.home-manager 
+    pkgs.home-manager
     pkgs.wlogout
     pkgs.python312
     pkgs.python313
@@ -80,4 +79,5 @@
     pkgs.hyprlandPlugins.hyprspace
     pkgs.google-chrome
     pkgs.swaylock-effects
-  ]
+  ];
+}
