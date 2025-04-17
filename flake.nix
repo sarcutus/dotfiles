@@ -41,6 +41,7 @@
           ./packages.nix
           ./hyprland.nix
         ];
+        specialArgs = {inherit inputs;};
       };
     };
   };
