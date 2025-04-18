@@ -118,7 +118,7 @@
     enable = true;
     ohMyZsh.enable = true;
     # ohMyZsh.plugins = [ "git" ];
-    ohMyZsh.theme = "random";
+    # ohMyZsh.theme = "random";
     syntaxHighlighting.enable = true;
   };
 

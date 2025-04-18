@@ -11,7 +11,6 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     plugins = [
       inputs.hy3.packages.${pkgs.system}.hy3
-      "/home/sarcutus/.nix-profile/lib/libhy3.so"
     ];
     extraConfig = builtins.readFile (./hyprland.conf);
     
