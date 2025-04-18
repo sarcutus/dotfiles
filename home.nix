@@ -10,10 +10,12 @@
     # make sure to also set the portal package, so that they are in sync
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     plugins = [
-      pkgs.hyprlandPlugins.hy3
+      inputs.hy3.packages.${pkgs.system}.hy3
+      "/home/sarcutus/.nix-profile/lib/libhy3.so"
     ];
-    extraConfig = builtins.readFile (/home/sarcutus/.config/hypr/hyprland.conf);
-  };
+    extraConfig = builtins.readFile (./hyprland.conf);
+    
+    };
 
   
   # programs.bash.enable = true;

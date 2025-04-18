@@ -14,7 +14,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     hy3 = {
-      url = "github:outfoxxed/hy3";
+      url = "github:outfoxxed/hy3/master";
       inputs.hyprland.follows = "hyprland";
     };
   };
@@ -22,6 +22,8 @@
   outputs = inputs @ {
     nixpkgs,
     home-manager,
+    hyprland,
+    hy3,
     ...
   }: {
     nixosConfigurations = {
@@ -39,7 +41,7 @@
           }
           ./configuration.nix
           ./packages.nix
-          ./hyprland.nix
+          # ./hyprland.nix
         ];
         specialArgs = {inherit inputs;};
       };

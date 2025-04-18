@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = [
     pkgs.git
+    pkgs.git-credential-manager
     pkgs.home-manager
     pkgs.wlogout
     pkgs.python312
@@ -40,7 +41,7 @@
     pkgs.rxvt-unicode-unwrapped-emoji
     pkgs.rxvt-unicode-emoji
     pkgs.curl
-    pkgs.hyprland
+    # pkgs.hyprland
     pkgs.xwayland
     pkgs.dmidecode
     pkgs.bemenu
@@ -75,8 +76,8 @@
     pkgs.wget
     pkgs.kitty
     pkgs.rio
-    pkgs.hyprlandPlugins.hy3
-    pkgs.hyprlandPlugins.hyprspace
+    # pkgs.hyprlandPlugins.hy3
+    # pkgs.hyprlandPlugins.hyprspace
     pkgs.google-chrome
     pkgs.swaylock-effects
   ];

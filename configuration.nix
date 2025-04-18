@@ -122,10 +122,12 @@
     syntaxHighlighting.enable = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   programs.zsh.autosuggestions.enable = true;
   programs.git.enable = true;
