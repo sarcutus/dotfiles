@@ -2,10 +2,12 @@
   environment.systemPackages = [
     pkgs.git
     pkgs.git-credential-manager
+    pkgs.sway
     pkgs.home-manager
     pkgs.wlogout
     pkgs.python312
     pkgs.python313
+    pkgs.gcc
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
@@ -41,7 +43,7 @@
     pkgs.rxvt-unicode-unwrapped-emoji
     pkgs.rxvt-unicode-emoji
     pkgs.curl
-    # pkgs.hyprland
+#    pkgs.hyprland
     pkgs.xwayland
     pkgs.dmidecode
     pkgs.bemenu
@@ -54,9 +56,9 @@
     pkgs.fish
     pkgs.nushell
     pkgs.elvish
-    pkgs.linuxKernel.kernels.linux_xanmod
-    # pkgs.vmware-workstation
-    # pkgs.linuxKernel.kernels.linux_xanmod.vmware
+    pkgs.linuxKernel.kernels.linux_xanmod_latest
+#    pkgs.vmware-workstation
+#    pkgs.linuxKernel.kernels.linux_xanmod.vmware
     pkgs.open-vm-tools
     pkgs.curl
     pkgs.font-awesome
@@ -76,9 +78,15 @@
     pkgs.wget
     pkgs.kitty
     pkgs.rio
-    # pkgs.hyprlandPlugins.hy3
+    pkgs.hyprlandPlugins.hy3
     # pkgs.hyprlandPlugins.hyprspace
     pkgs.google-chrome
     pkgs.swaylock-effects
+    pkgs.hyprpolkitagent
+    pkgs.swaynotificationcenter
+    pkgs.swayosd
+    pkgs.rmpc
+#    pkgs.crystal-dock
+    (pkgs.callPackage ./crystal-remix-icon-theme/result/share/icons/crystal-remix { })
   ];
 }
