@@ -87,6 +87,6 @@
     pkgs.swayosd
     pkgs.rmpc
 #    pkgs.crystal-dock
-    (pkgs.callPackage ./crystal-remix-icon-theme/crystal-remix-icon-theme { })
+    (pkgs.callPackage ./crystal-remix-icon-theme { })
   ];
 }
