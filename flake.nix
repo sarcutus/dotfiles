@@ -27,7 +27,7 @@
 #    crystal-remix-icon-theme = {
 #    url = "./crystal-remix-icon-theme";
 #      inputs.crystal-remix-icon-theme.follows = "${pkgs.stdenv.hostPlatform.system}.file:///home/sarcutus/sarcutusdotfiles/crystal-remix-icon-theme";
-  };
+#  };
 };
   outputs = inputs @ {
     self,
@@ -36,7 +36,7 @@
     hyprland,
     hyprland-plugins,
     hy3,
-    crystal-remix-icon-theme,
+#    crystal-remix-icon-theme,
     ...
   }: {
     nixosConfigurations = {
