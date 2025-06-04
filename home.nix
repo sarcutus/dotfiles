@@ -32,11 +32,17 @@
   
   # programs.bash.enable = true;
 
-#  gtk = {
-#    enable = true;
+  gtk = {
+    enable = true;
 #    iconTheme.package = (pkgs.callPackage ./crystal-remix-icon-theme.nix { });
 #    iconTheme.name = "crystal-remix";
-#  };
+    theme.name = "Aretha-Dark-GTK";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+  };
 
   # The state version is required and should stay at the version you
   # originally installed.
