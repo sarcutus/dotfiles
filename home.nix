@@ -18,7 +18,7 @@
 #      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
 #      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
-    extraConfig = builtins.readFile ("/home/sarcutus/sarcutusdotfiles/hypr/hyprland.conf");
+    extraConfig = builtins.readFile (./hypr/hyprland.conf);
     };
 
    wayland.windowManager.sway = {
@@ -31,10 +31,12 @@
      }; 
   
   # programs.bash.enable = true;
-#    iconTheme = {
-#      package = (callPackage ./crystal-remix-icon-theme {});
-#      name = "Crystal Remix";
-#    };
+
+#  gtk = {
+#    enable = true;
+#    iconTheme.package = (pkgs.callPackage ./crystal-remix-icon-theme.nix { });
+#    iconTheme.name = "crystal-remix";
+#  };
 
   # The state version is required and should stay at the version you
   # originally installed.

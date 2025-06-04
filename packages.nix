@@ -86,7 +86,23 @@
     pkgs.swaynotificationcenter
     pkgs.swayosd
     pkgs.rmpc
-#    pkgs.crystal-dock
-    (pkgs.callPackage ./crystal-remix-icon-theme { })
+    pkgs.crystal-dock
+    (pkgs.callPackage ./crystal-remix-icon-theme.nix { })
+    pkgs.dconf-editor
+    pkgs.kdePackages.systemsettings
+    pkgs.kdePackages.kde-gtk-config
+    pkgs.plasma-theme-switcher
+    pkgs.kdePackages.plasma-desktop
+    pkgs.kdePackages.knewstuff
+    pkgs.kdePackages.kdeplasma-addons
+    pkgs.kdePackages.layer-shell-qt
+    pkgs.shellcheck
+    pkgs.xsettingsd
+    pkgs.kdePackages.plasma-workspace
+    pkgs.kdePackages.plasma-wayland-protocols
+    pkgs.kdePackages.libplasma
+    pkgs.kdePackages.kcoreaddons
+    pkgs.libsForQt5.qt5ct
+    pkgs.hyprland-qt-support
   ];
 }

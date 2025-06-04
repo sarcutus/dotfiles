@@ -16,7 +16,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 #    ./crystal-remix-icon-theme.nix
-    # ./cachix.nix
+#    ./cachix.nix
+#    ./home.nix
   ];
 
   swapDevices = [
