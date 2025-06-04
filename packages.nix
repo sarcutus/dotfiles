@@ -104,5 +104,6 @@
     pkgs.kdePackages.kcoreaddons
     pkgs.libsForQt5.qt5ct
     pkgs.hyprland-qt-support
+    pkgs.kdePackages.sddm-kcm
   ];
 }

@@ -55,7 +55,7 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.desktopManager.xfce.enable = true;
+  services.desktopManager.plasma6.enable = true;
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
 

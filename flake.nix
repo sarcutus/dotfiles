@@ -25,8 +25,8 @@
       inputs.hyprland.follows = "hyprland";
     };
 #    crystal-remix-icon-theme = {
-#    url = "./crystal-remix-icon-theme";
-#      inputs.crystal-remix-icon-theme.follows = "${pkgs.stdenv.hostPlatform.system}.file:///home/sarcutus/sarcutusdotfiles/crystal-remix-icon-theme";
+#    url = "./crystal-remix-icon-theme.nix";
+#      inputs.crystal-remix-icon-theme.follows = "${pkgs.stdenv.hostPlatform.system}.file:./crystal-remix-icon-theme.nix";
 #  };
 };
   outputs = inputs @ {
