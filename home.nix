@@ -13,7 +13,7 @@
     plugins = [
       pkgs.hyprland
       pkgs.hyprlandPlugins.hy3
-#      pkgs.hyprlandPlugins.hyprscrolling
+      pkgs.hyprlandPlugins.hyprscrolling
       inputs.hy3.packages.${pkgs.system}.hy3
 #      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
 #      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
@@ -28,20 +28,28 @@
        };
      package = pkgs.sway;
      extraConfig = builtins.readFile (./sway/config);
-     }; 
+     };
+
+  programs.vim = {
+     enable = true;
+     plugins = with pkgs.vimPlugins; [vim-airline];
+ 
   
   # programs.bash.enable = true;
 
   gtk = {
     enable = true;
-#    iconTheme.package = (pkgs.callPackage ./crystal-remix-icon-theme.nix { });
-#    iconTheme.name = "crystal-remix";
+    iconTheme.package = pkgs.nordzy-icon-theme;
+    iconTheme.name = "Nordzy-dark";
     theme.name = "Aretha-Dark-GTK";
   };
 
   qt = {
     enable = true;
     platformTheme.name = "qtct";
+  };
+  programs.rmpc.config = {
+    extraConfig = builtins.readFile (./rmpc/config_nord.ron);
   };
 
   # The state version is required and should stay at the version you

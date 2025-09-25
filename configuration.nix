@@ -30,9 +30,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   networking.hostName = "Sarcutusdevice02"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -109,7 +108,7 @@
   };
 
   users.extraUsers.sarcutus = {
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 
   # Enable the 1Password CLI, this also enables a SGUID wrapper so the CLI can authorize against the GUI app
@@ -130,6 +129,8 @@
     # ohMyZsh.theme = "random";
     syntaxHighlighting.enable = true;
   };
+  
+  programs.steam.enable = true;
 
   nix.settings = {
     experimental-features = [
@@ -152,19 +153,19 @@
     musicDirectory = "/home/sarcutus/Music";
     playlistDirectory = "/home/sarcutus/Music/A list of playlists";
     extraConfig = ''
-        audio_output {
-        type "pulse"
-        name "Pulseaudio"
-        server "127.0.0.1" # add this line - MPD must connect to the local sound server
-      }
+#        audio_output {
+#        type "pulse"
+#        name "Pulseaudio"
+#        server "127.0.0.1" # add this line - MPD must connect to the local sound server
+#      }
         audio_output {
         type "pipewire"
         name "PipeWire"
       }
-        audio_output {
-        type "alsa"
-        name "ALSA"    
-      }
+#        audio_output {
+#        type "alsa"
+#        name "ALSA"    
+#      }
     '';
     # Optional: Allow non-localhost connections
     #  network.listenAddress = "any";

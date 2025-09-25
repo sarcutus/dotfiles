@@ -16,18 +16,18 @@
       url = "github:hyprwm/hyprland-plugins/main";
       inputs.hyprland.follows = "hyprland";
     };
-    # Hyprspace = {
-    #   url = "github:KZDKM/Hyprspace";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+#    Hyprspace = {
+#      url = "github:KZDKM/Hyprspace";
+#      inputs.hyprland.follows = "hyprland";
+#    };
     hy3 = {
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
-#    crystal-remix-icon-theme = {
-#    url = "./crystal-remix-icon-theme.nix";
-#      inputs.crystal-remix-icon-theme.follows = "${pkgs.stdenv.hostPlatform.system}.file:./crystal-remix-icon-theme.nix";
-#  };
+#    hy3 = {
+#      url = "github:Daholli/hy3";
+#      inputs.hyprland.follows = "hyprland";
+#    };
 };
   outputs = inputs @ {
     self,
@@ -36,7 +36,6 @@
     hyprland,
     hyprland-plugins,
     hy3,
-#    crystal-remix-icon-theme,
     ...
   }: {
     nixosConfigurations = {
@@ -54,6 +53,7 @@
           }
           ./configuration.nix
           ./packages.nix
+          ./vim.nix
           ./hyprland.nix
 #          ./crystal-remix-icon-theme/crystal-remix-icon-theme.nix
 #          ./hy3.nix
