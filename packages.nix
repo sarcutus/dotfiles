@@ -20,14 +20,16 @@
     pkgs.meson
     pkgs.cpio
     pkgs.zsh-syntax-highlighting
+    pkgs.pavucontrol
     pkgs.pkg-config
     pkgs.ninja
     pkgs.hyprwayland-scanner
     pkgs.libreoffice
     pkgs.wlroots
-    pkgs.chromium
+    # pkgs.chromium
     pkgs.distrobox
     pkgs.distrobox-tui
+    pkgs.discord
     pkgs.linuxKernel.packages.linux_xanmod.vmware
     pkgs.jq
     pkgs.jqp
@@ -43,7 +45,7 @@
     pkgs.rxvt-unicode-unwrapped-emoji
     pkgs.rxvt-unicode-emoji
     pkgs.curl
-#    pkgs.hyprland
+    pkgs.hyprland-qt-support
     pkgs.xwayland
     pkgs.dmidecode
     pkgs.bemenu
@@ -68,7 +70,7 @@
     pkgs.grim
     pkgs.slurp
     pkgs.wl-clipboard
-    pkgs.mako
+#    pkgs.mako
     pkgs.lightdm
     pkgs.xfce.xfdesktop
     pkgs.kdePackages.sddm
@@ -80,7 +82,7 @@
     pkgs.rio
     pkgs.hyprlandPlugins.hy3
     # pkgs.hyprlandPlugins.hyprspace
-    pkgs.google-chrome
+    # pkgs.google-chrome
     pkgs.swaylock-effects
     pkgs.hyprpolkitagent
     pkgs.swaynotificationcenter
@@ -91,7 +93,6 @@
     pkgs.dconf-editor
     pkgs.kdePackages.systemsettings
     pkgs.kdePackages.kde-gtk-config
-    pkgs.plasma-theme-switcher
     pkgs.kdePackages.plasma-desktop
     pkgs.kdePackages.knewstuff
     pkgs.kdePackages.kdeplasma-addons
@@ -102,8 +103,11 @@
     pkgs.kdePackages.plasma-wayland-protocols
     pkgs.kdePackages.libplasma
     pkgs.kdePackages.kcoreaddons
-    pkgs.libsForQt5.qt5ct
+    # pkgs.libsForQt5.qt5ct
     pkgs.hyprland-qt-support
     pkgs.kdePackages.sddm-kcm
+    pkgs.hyprpaper
+    pkgs.brightnessctl
+    pkgs.blesh
   ];
 }

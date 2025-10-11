@@ -15,6 +15,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./packages.nix
+#    ./vim.nix
 #    ./crystal-remix-icon-theme.nix
 #    ./cachix.nix
 #    ./home.nix
@@ -68,10 +70,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  hardware.graphics.extraPackages = [
-    pkgs.amdvlk
-  ];
 
   # Enable sound.
   # hardware.pulseaudio.enable = true;
@@ -160,7 +158,7 @@
 #      }
         audio_output {
         type "pipewire"
-        name "PipeWire"
+        name "Sarcutusdevice PipeWire"
       }
 #        audio_output {
 #        type "alsa"
@@ -201,6 +199,7 @@
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORM = "wayland";
   };
 
   # List packages installed in system profile. To search, run:

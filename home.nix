@@ -32,17 +32,11 @@
 
   programs.vim = {
      enable = true;
-     plugins = with pkgs.vimPlugins; [vim-airline];
+     plugins = with pkgs.vimPlugins; [ vim-airline ];
+     };
  
   
   # programs.bash.enable = true;
-
-  gtk = {
-    enable = true;
-    iconTheme.package = pkgs.nordzy-icon-theme;
-    iconTheme.name = "Nordzy-dark";
-    theme.name = "Aretha-Dark-GTK";
-  };
 
   qt = {
     enable = true;

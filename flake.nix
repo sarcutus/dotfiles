@@ -53,7 +53,7 @@
           }
           ./configuration.nix
           ./packages.nix
-          ./vim.nix
+#          ./vim.nix
           ./hyprland.nix
 #          ./crystal-remix-icon-theme/crystal-remix-icon-theme.nix
 #          ./hy3.nix

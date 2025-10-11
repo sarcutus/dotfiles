@@ -1,0 +1,5 @@
+vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+  start = [ airline ];
+  opt = [];
+};
+
