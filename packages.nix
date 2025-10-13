@@ -11,10 +11,15 @@
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
+    pkgs.bitwarden-desktop
+    pkgs.bitwarden-cli
+    pkgs.obsidian
     pkgs.vimPlugins.jsonc-vim
     pkgs.vimPluginsUpdater
     pkgs.vimPlugins.mini-statusline
     pkgs.vimPlugins.rust-vim
+    pkgs.vivaldi
+    pkgs.nwg-drawer
     pkgs.sphinx
     pkgs.cmake
     pkgs.meson
