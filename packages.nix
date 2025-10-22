@@ -11,6 +11,9 @@
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
+    pkgs.cantata
+    pkgs.zbar
+    pkgs.qrrs
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
     pkgs.obsidian
@@ -50,6 +53,7 @@
     pkgs.rxvt-unicode-unwrapped-emoji
     pkgs.rxvt-unicode-emoji
     pkgs.curl
+    pkgs.nautilus
     pkgs.hyprland-qt-support
     pkgs.xwayland
     pkgs.dmidecode
@@ -114,5 +118,7 @@
     pkgs.hyprpaper
     pkgs.brightnessctl
     pkgs.blesh
+    pkgs.tor-browser
+    pkgs.proton-authenticator
   ];
 }
