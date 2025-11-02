@@ -212,7 +212,7 @@
       font-awesome
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       # nerd-fonts.JetBrainsMono
       # nerd-fonts.NerdFontsSymbolsOnly
     ]

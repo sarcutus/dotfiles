@@ -11,7 +11,7 @@
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
-    pkgs.cantata
+    # pkgs.cantata
     pkgs.zbar
     pkgs.qrrs
     pkgs.bitwarden-desktop
@@ -46,7 +46,7 @@
     pkgs.dbus-broker
     pkgs.ghostty
     pkgs.power-profiles-daemon
-    pkgs.texlivePackages.noto-emoji
+    # pkgs.texlivePackages.noto-emoji
     pkgs.font-awesome
     pkgs.font-awesome_4
     pkgs.font-awesome_5
@@ -97,7 +97,7 @@
     pkgs.swaynotificationcenter
     pkgs.swayosd
     pkgs.rmpc
-    pkgs.crystal-dock
+    # pkgs.crystal-dock
     (pkgs.callPackage ./crystal-remix-icon-theme.nix { })
     pkgs.dconf-editor
     pkgs.kdePackages.systemsettings

@@ -12,7 +12,7 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     plugins = [
       pkgs.hyprland
-      pkgs.hyprlandPlugins.hy3
+#      pkgs.hyprlandPlugins.hy3
       pkgs.hyprlandPlugins.hyprscrolling
       inputs.hy3.packages.${pkgs.system}.hy3
 #      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
