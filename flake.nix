@@ -28,6 +28,10 @@
 #      url = "github:Daholli/hy3";
 #      inputs.hyprland.follows = "hyprland";
 #    };
+    crystal-dock = {
+      url = "github:dangvd/crystal-dock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 };
   outputs = inputs @ {
     self,
