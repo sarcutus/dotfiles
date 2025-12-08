@@ -19,7 +19,7 @@
 #    ./vim.nix
 #    ./crystal-remix-icon-theme.nix
 #    ./cachix.nix
-#    ./home.nix
+    ./home.nix
   ];
 
   swapDevices = [
@@ -59,6 +59,10 @@
   services.desktopManager.plasma6.enable = true;
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
+  
+  services.clamav.daemon.enable = true;
+
+  services.clamav.updater.enable = true;
 
   hardware.graphics.enable = true;
 
@@ -106,7 +110,7 @@
   };
 
   users.extraUsers.sarcutus = {
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
   };
 
   # Enable the 1Password CLI, this also enables a SGUID wrapper so the CLI can authorize against the GUI app

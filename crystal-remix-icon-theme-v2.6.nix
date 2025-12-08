@@ -1,4 +1,9 @@
-{ stdenv, fetchFromGitHub, gtk3 }:
+{ 
+  self,
+  stdenv, 
+  fetchFromGitHub, 
+  gtk3, 
+}:
 
 stdenv.mkDerivation rec {
   name = "${package-name}-${version}";

@@ -34,17 +34,25 @@
      enable = true;
      plugins = with pkgs.vimPlugins; [ vim-airline ];
      };
- 
-  
+
   # programs.bash.enable = true;
 
+  programs.wezterm = {
+    enable = true;
+    enableBashIntegration = true;  # Optional: Enable Bash integration
+    enableZshIntegration = true;    # Optional: Enable Zsh integration
+    package = pkgs.wezterm;         # Specify the WezTerm package
+#    extraConfig = builtins.readFile (./wezterm/wezterm.lua);
+  };
+  
   qt = {
     enable = true;
     platformTheme.name = "qtct";
   };
-  programs.rmpc.config = {
-    extraConfig = builtins.readFile (./rmpc/config_nord.ron);
-  };
+  
+#  programs.rmpc.config = {
+#    extraConfig = builtins.readFile (./rmpc/config_nord.ron);
+#  };
 
   # The state version is required and should stay at the version you
   # originally installed.

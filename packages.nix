@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs, 
+  ...
+}: {
   environment.systemPackages = [
     pkgs.git
     pkgs.git-credential-manager
@@ -12,6 +16,15 @@
     # pkgs.python311
     # pkgs.python310
     # pkgs.cantata
+    pkgs.rocmPackages.clr
+    pkgs.rocmPackages.rocm-smi
+    pkgs.btop 
+    pkgs.google-authenticator
+    pkgs.clamav
+    pkgs.telegram-desktop
+    pkgs.iotop
+    pkgs.mpc
+    pkgs.dwl
     pkgs.zbar
     pkgs.qrrs
     pkgs.bitwarden-desktop
@@ -89,18 +102,20 @@
     pkgs.wget
     pkgs.kitty
     pkgs.rio
-    pkgs.hyprlandPlugins.hy3
+#    pkgs.hyprlandPlugins.hy3
     # pkgs.hyprlandPlugins.hyprspace
     # pkgs.google-chrome
     pkgs.swaylock-effects
     pkgs.hyprpolkitagent
     pkgs.swaynotificationcenter
     pkgs.swayosd
+    pkgs.hyprlandPlugins.hy3
     pkgs.rmpc
-    # pkgs.crystal-dock
+    pkgs.crystal-dock
     (pkgs.callPackage ./crystal-remix-icon-theme.nix { })
     pkgs.dconf-editor
     pkgs.kdePackages.systemsettings
+    pkgs.kdePackages.qt6ct
     pkgs.kdePackages.kde-gtk-config
     pkgs.kdePackages.plasma-desktop
     pkgs.kdePackages.knewstuff
@@ -120,5 +135,7 @@
     pkgs.blesh
     pkgs.tor-browser
     pkgs.proton-authenticator
+    pkgs.fastfetch
+    pkgs.neofetch
   ];
 }

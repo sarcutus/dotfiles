@@ -25,10 +25,14 @@
       inputs.hyprland.follows = "hyprland";
     };
 #    hy3 = {
-#      url = "github:Daholli/hy3";
+#     url = "github:Daholli/hy3";
 #      inputs.hyprland.follows = "hyprland";
 #    };
-};
+#    wezterm = {
+#      url = "github:wezterm/wezterm/main";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
+};  
   outputs = inputs @ {
     self,
     nixpkgs,
@@ -55,7 +59,7 @@
           ./packages.nix
 #          ./vim.nix
           ./hyprland.nix
-#          ./crystal-remix-icon-theme/crystal-remix-icon-theme.nix
+#          ./crystal-remix-icon-theme.nix
 #          ./hy3.nix
           # ./cachix.nix
           # ./xdg.nix
