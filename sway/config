@@ -14,16 +14,17 @@ set $down j
 set $up k
 set $right l
 
-# exec waybar
+exec_always = uwsm app waybar
 exec_always = wezterm-mux-server
-exec_always = nwgdrawer
-exec_always = nwg-dock -d -x -w 10 -hd 0 -c nwg-drawer -lp end
+exec_always = uwsm app nwgdrawer
+exec_always = uwsm app nwg-dock -d -x -w 10 -hd 0 -c nwg-drawer -lp end
 exec_always = systemctl --user start hyprpolkitagent
-exec_always = hyprpaper
-exec_always = swayosd-server
-exec_always = swaync
+exec_always = uwsm app hyprpaper
+exec_always = uwsm app swayosd-server
+exec_always = uwsm app swaync
 exec_always = systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK
 exec_always swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+# exec_always = pkill swaybar
 exec = uwsm finalize sway
 
 # Your preferred terminal emulator
@@ -187,26 +188,26 @@ set $menu wofi_path | wofi --show drun,run
 #
 # Resizing containers:
 #
-mode "resize" {
+# mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+#     bindsym $left resize shrink width 10px
+#     bindsym $down resize grow height 10px
+#     bindsym $up resize shrink height 10px
+#     bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+#     bindsym Left resize shrink width 10px
+#     bindsym Down resize grow height 10px
+#     bindsym Up resize shrink height 10px
+#     bindsym Right resize grow width 10px
 
     # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 bindsym $mod+r mode "resize"
 #
 # Utilities:
@@ -233,6 +234,7 @@ bar {
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
     status_command waybar
+    status_command pkill swaybar
 
     colors {
         statusline #ffffff

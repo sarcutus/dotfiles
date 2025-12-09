@@ -5,7 +5,7 @@
 }: {
  
   wayland.windowManager.hyprland = {
-    enable = true;
+#    enable = true;
     # set the flake package
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
@@ -28,7 +28,13 @@
        };
      package = pkgs.sway;
      extraConfig = builtins.readFile (./sway/config);
-     };
+   };
+
+  xsession.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3;
+    extraConfig = builtins.readFile (./i3/config);
+  };
 
   programs.vim = {
      enable = true;

@@ -19,9 +19,12 @@
 #    ./vim.nix
 #    ./crystal-remix-icon-theme.nix
 #    ./cachix.nix
-    ./home.nix
   ];
+  
+  home-manager.users.sarcutus.imports = [./home.nix];
 
+  security.pam.services.sarcutus.googleAuthenticator.enable = true;
+  
   swapDevices = [
     {
       device = "/dev/nvme0n1p2";
@@ -187,12 +190,12 @@
   #    wrapperFeatures.gtk = true;
   #    wrapperFeatures.base = true;
   #  };
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
-  programs.hyprland.xwayland.enable = true;
-  programs.hyprland.systemd.setPath.enable = true;
+  # programs.hyprland = {
+  #   enable = true;
+  #   withUWSM = true;
+  # };
+  # programs.hyprland.xwayland.enable = true;
+  # programs.hyprland.systemd.setPath.enable = true;
   programs.thunderbird.enable = true;
   programs.tmux.enable = true;
   xdg.portal = {
@@ -204,6 +207,9 @@
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland";
+#    CMAKE_MAKE_PROGRAM = "cmake";
+#    CMAKE_C_COMPILER = "gcc";
+#    CMAKE_CXX_COMPILER = "gcc";
   };
 
   # List packages installed in system profile. To search, run:

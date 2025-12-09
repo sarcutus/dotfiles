@@ -12,10 +12,15 @@
     pkgs.python312
     pkgs.python313
     pkgs.gcc
+    pkgs.i3
+    pkgs.hypr
+    pkgs.polybarFull
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
     # pkgs.cantata
+    pkgs.dmenu
+    pkgs.xorg.xorgserver
     pkgs.rocmPackages.clr
     pkgs.rocmPackages.rocm-smi
     pkgs.btop 
@@ -36,6 +41,7 @@
     pkgs.vimPlugins.rust-vim
     pkgs.vivaldi
     pkgs.nwg-drawer
+    pkgs.nwg-dock
     pkgs.sphinx
     pkgs.cmake
     pkgs.meson
@@ -67,6 +73,7 @@
     pkgs.rxvt-unicode-emoji
     pkgs.curl
     pkgs.nautilus
+#    pkgs.hyprland
     pkgs.hyprland-qt-support
     pkgs.xwayland
     pkgs.dmidecode
@@ -88,7 +95,7 @@
     pkgs.font-awesome
     pkgs.jetbrains-mono
     # pkgs.nerdfonts
-    pkgs.dockbarx
+    # pkgs.dockbarx
     pkgs.grim
     pkgs.slurp
     pkgs.wl-clipboard
@@ -109,9 +116,7 @@
     pkgs.hyprpolkitagent
     pkgs.swaynotificationcenter
     pkgs.swayosd
-    pkgs.hyprlandPlugins.hy3
     pkgs.rmpc
-    pkgs.crystal-dock
     (pkgs.callPackage ./crystal-remix-icon-theme.nix { })
     pkgs.dconf-editor
     pkgs.kdePackages.systemsettings
@@ -128,7 +133,7 @@
     pkgs.kdePackages.libplasma
     pkgs.kdePackages.kcoreaddons
     # pkgs.libsForQt5.qt5ct
-    pkgs.hyprland-qt-support
+    # pkgs.hyprland-qt-support
     pkgs.kdePackages.sddm-kcm
     pkgs.hyprpaper
     pkgs.brightnessctl
@@ -137,5 +142,6 @@
     pkgs.proton-authenticator
     pkgs.fastfetch
     pkgs.neofetch
+    pkgs.crystal-dock
   ];
 }
