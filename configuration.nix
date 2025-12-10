@@ -23,6 +23,12 @@
   
   home-manager.users.sarcutus.imports = [./home.nix];
 
+  hardware.amdgpu = {
+    opencl.enable = true;
+    legacySupport.enable = true;
+    initrd.enable = true;
+  };
+
   security.pam.services.sarcutus.googleAuthenticator.enable = true;
   
   swapDevices = [
@@ -41,7 +47,17 @@
   networking.hostName = "Sarcutusdevice02"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;
+  # networking.useDHCP = true;
+  # systemd.network.enable = true;
+  # services.resolved.enable  = true;
+
+  # systemd.network.networks."wlp1s0" = {
+  # networkConfig = {
+  #   Address = "192.168.1.58/24";
+  #   Gateway = "192.168.1.1";
+  # };
+  #};
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -59,7 +75,12 @@
   # };
 
   # Enable the X11 windowing system.
-  services.desktopManager.plasma6.enable = true;
+#  services.xserver = {
+#    enable = true;
+#    config = builtins.readFile (./i3/config);
+#  };
+
+  # services.desktopManager.plasma6.enable = true;
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
   
@@ -68,6 +89,7 @@
   services.clamav.updater.enable = true;
 
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -184,12 +206,9 @@
   programs.git.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
-  #  programs.uwsm.enable = true;
-  #  programs.sway = {
-  #    enable = true;
-  #    wrapperFeatures.gtk = true;
-  #    wrapperFeatures.base = true;
-  #  };
+#   programs.uwsm.enable = true;
+  programs.waybar.enable = true;
+
   # programs.hyprland = {
   #   enable = true;
   #   withUWSM = true;
@@ -202,7 +221,7 @@
     enable = true;
     wlr.enable = true;
   };
-  virtualisation.vmware.host.enable = true;
+  # virtualisation.vmware.host.enable = true;
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";

@@ -14,18 +14,18 @@ set $down j
 set $up k
 set $right l
 
-exec_always = uwsm app waybar
-exec_always = wezterm-mux-server
-exec_always = uwsm app nwgdrawer
-exec_always = uwsm app nwg-dock -d -x -w 10 -hd 0 -c nwg-drawer -lp end
-exec_always = systemctl --user start hyprpolkitagent
-exec_always = uwsm app hyprpaper
-exec_always = uwsm app swayosd-server
-exec_always = uwsm app swaync
-exec_always = systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK
-exec_always swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+exec_always = uwsm finalize sway 
+exec_always = uwsm app waybar &
+exec_always = wezterm-mux-server &
+exec_always = uwsm app nwgdrawer &
+exec_always = uwsm app nwg-dock -d -x -w 10 -hd 0 -c nwg-drawer -lp end &
+exec_always = systemctl --user start hyprpolkitagent &
+exec_always = uwsm app hyprpaper  &
+exec_always = uwsm app swayosd-server &
+exec_always = uwsm app swaync &
+# exec_always = systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK
+# exec_always swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
 # exec_always = pkill swaybar
-exec = uwsm finalize sway
 
 # Your preferred terminal emulator
 set $term wezterm-gui

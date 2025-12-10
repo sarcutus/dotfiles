@@ -22,7 +22,7 @@
     };
 
    wayland.windowManager.sway = {
-#     enable = true;
+     enable = true;
      systemd = {
        enable = true;
        };
@@ -31,9 +31,9 @@
    };
 
   xsession.windowManager.i3 = {
-    enable = true;
+#    enable = true;
     package = pkgs.i3;
-    extraConfig = builtins.readFile (./i3/config);
+#    extraConfig = builtins.readFile (./i3/config);
   };
 
   programs.vim = {

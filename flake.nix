@@ -54,11 +54,11 @@
               backupFileExtension = "backup";
               users.sarcutus = ./home.nix;
             };
-          }
+         }
           ./configuration.nix
           ./packages.nix
 #          ./vim.nix
-          ./hyprland.nix
+#          ./hyprland.nix
 #          ./crystal-remix-icon-theme.nix
 #          ./hy3.nix
           # ./cachix.nix

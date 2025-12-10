@@ -8,13 +8,21 @@
     pkgs.git-credential-manager
     pkgs.sway
     pkgs.home-manager
+    pkgs.lightdm
+    pkgs.egl-wayland
+    pkgs.wayland-protocols
+    pkgs.wayland
+    pkgs.libxkbcommon
+    pkgs.libdrm
     pkgs.wlogout
     pkgs.python312
     pkgs.python313
     pkgs.gcc
     pkgs.i3
     pkgs.hypr
+    pkgs.mesa
     pkgs.polybarFull
+    pkgs.networkmanager
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
