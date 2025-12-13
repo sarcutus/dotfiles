@@ -208,18 +208,27 @@
   programs.firefox.enable = true;
 #   programs.uwsm.enable = true;
   programs.waybar.enable = true;
+#  programs.sway = {
+#    enable = true;
+#  }; 
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   withUWSM = true;
-  # };
+programs.hyprland = {
+  enable = true;
+  withUWSM = true;
+  };
   # programs.hyprland.xwayland.enable = true;
   # programs.hyprland.systemd.setPath.enable = true;
   programs.thunderbird.enable = true;
   programs.tmux.enable = true;
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
+    ];
+    config.common = {
+      default = [ "gtk" ];
+    }; 
   };
   # virtualisation.vmware.host.enable = true;
 

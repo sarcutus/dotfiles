@@ -9,6 +9,7 @@
     pkgs.sway
     pkgs.home-manager
     pkgs.lightdm
+    pkgs.easyeffects
     pkgs.egl-wayland
     pkgs.wayland-protocols
     pkgs.wayland
@@ -23,10 +24,14 @@
     pkgs.mesa
     pkgs.polybarFull
     pkgs.networkmanager
+    pkgs.rPackages.rust
+    pkgs.rustc
     # pkgs.python314
     # pkgs.python311
     # pkgs.python310
     # pkgs.cantata
+    # pkgs.hyprland
+    # pkgs.hyprlandPlugins.hy3
     pkgs.dmenu
     pkgs.xorg.xorgserver
     pkgs.rocmPackages.clr
@@ -70,6 +75,7 @@
     pkgs.jqp
     pkgs.nss
     pkgs.noto-fonts-color-emoji
+    pkgs.dbus
     pkgs.dbus-broker
     pkgs.ghostty
     pkgs.power-profiles-daemon
@@ -81,14 +87,13 @@
     pkgs.rxvt-unicode-emoji
     pkgs.curl
     pkgs.nautilus
-#    pkgs.hyprland
     pkgs.hyprland-qt-support
     pkgs.xwayland
     pkgs.dmidecode
     pkgs.bemenu
     pkgs.waybar
     pkgs.wayland-utils
-    pkgs.wezterm
+ #   pkgs.wezterm
     pkgs.tmux
     pkgs.tmuxp
     pkgs.zsh
@@ -117,7 +122,6 @@
     pkgs.wget
     pkgs.kitty
     pkgs.rio
-#    pkgs.hyprlandPlugins.hy3
     # pkgs.hyprlandPlugins.hyprspace
     # pkgs.google-chrome
     pkgs.swaylock-effects
@@ -141,7 +145,7 @@
     pkgs.kdePackages.libplasma
     pkgs.kdePackages.kcoreaddons
     # pkgs.libsForQt5.qt5ct
-    # pkgs.hyprland-qt-support
+    pkgs.hyprland-qt-support
     pkgs.kdePackages.sddm-kcm
     pkgs.hyprpaper
     pkgs.brightnessctl
