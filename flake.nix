@@ -4,14 +4,19 @@
 
   inputs = {
 #    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mangowc = {
+      url = "github:DreamMaoMao/mangowc";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins/main";
@@ -37,11 +42,12 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-unstable,
+    flake-parts,
     home-manager,
-    hyprland,
-    hyprland-plugins,
-    hy3,
+    mangowc,
+#    hyprland,
+#    hyprland-plugins,
+#    hy3,
     ...
   }: {
     nixosConfigurations = {
@@ -56,7 +62,7 @@
               backupFileExtension = "backup";
               users.sarcutus = ./home.nix;
             };
-         }
+          }
           ./configuration.nix
           ./packages.nix
 #          ./vim.nix

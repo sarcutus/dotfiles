@@ -93,7 +93,7 @@
     pkgs.bemenu
     pkgs.waybar
     pkgs.wayland-utils
- #   pkgs.wezterm
+    pkgs.wezterm
     pkgs.tmux
     pkgs.tmuxp
     pkgs.zsh

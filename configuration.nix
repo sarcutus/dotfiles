@@ -213,7 +213,7 @@
 #  }; 
 
 programs.hyprland = {
-  enable = true;
+#  enable = true;
   withUWSM = true;
   };
   # programs.hyprland.xwayland.enable = true;

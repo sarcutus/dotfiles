@@ -5,13 +5,13 @@
 }: {
  
   wayland.windowManager.hyprland = {
-    enable = true;
+#    enable = true;
     # set the flake package
     package = pkgs.hyprland;
     # make sure to also set the portal package, so that they are in sync
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     plugins = [
-#      pkgs.hyprland
+    pkgs.hyprland
     pkgs.hyprlandPlugins.hy3
 #      pkgs.hyprlandPlugins.hyprscrolling
 #      inputs.hy3.packages.${pkgs.system}.hy3
@@ -21,7 +21,16 @@
     extraConfig = builtins.readFile (./hypr/hyprland.conf);
   };
 
-   wayland.windowManager.sway = {
+  wayland.windowManager.mango = {
+    enable = true;
+    extraConfig = builtins.readFile (./mango/config.conf);
+    autostart.sh = ''
+      waybar &
+      hyprpaper &
+    '';
+  };
+
+  wayland.windowManager.sway = {
 #     enable = true;
      systemd = {
        enable = true;
