@@ -159,6 +159,8 @@
   
   programs.steam.enable = true;
 
+#  programs.mangowc.enable = true;
+
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -179,24 +181,7 @@
     user = "sarcutus";
     musicDirectory = "/home/sarcutus/Music";
     playlistDirectory = "/home/sarcutus/Music/A list of playlists";
-    extraConfig = ''
-#        audio_output {
-#        type "pulse"
-#        name "Pulseaudio"
-#        server "127.0.0.1" # add this line - MPD must connect to the local sound server
-#      }
-        audio_output {
-        type "pipewire"
-        name "Sarcutusdevice PipeWire"
-      }
-#        audio_output {
-#        type "alsa"
-#        name "ALSA"    
-#      }
-    '';
-    # Optional: Allow non-localhost connections
-    #  network.listenAddress = "any";
-    #  network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    settings = builtins.readFile (./mpd.conf); 
   };
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";

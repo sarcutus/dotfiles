@@ -21,14 +21,14 @@
     extraConfig = builtins.readFile (./hypr/hyprland.conf);
   };
 
-  wayland.windowManager.mango = {
-    enable = true;
-    extraConfig = builtins.readFile (./mango/config.conf);
-    autostart.sh = ''
-      waybar &
-      hyprpaper &
-    '';
-  };
+#  wayland.windowManager.mangowc = {
+#    enable = true;
+#    extraConfig = builtins.readFile (./mango/config.conf);
+#    autostart.sh = ''
+#      waybar &
+#      hyprpaper &
+#    '';
+#  };
 
   wayland.windowManager.sway = {
 #     enable = true;
