@@ -159,8 +159,6 @@
   
   programs.steam.enable = true;
 
-#  programs.mangowc.enable = true;
-
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -179,9 +177,16 @@
   services.mpd = {
     enable = true;
     user = "sarcutus";
-    musicDirectory = "/home/sarcutus/Music";
-    playlistDirectory = "/home/sarcutus/Music/A list of playlists";
-    settings = builtins.readFile (./mpd.conf); 
+    settings = {
+      playlist_directory = "/home/sarcutus/Music/A list of playlists";
+      music_directory = "/home/sarcutus/Music";
+      audio_output = [
+        {
+          type = "pipewire";
+          name = "Sarcutusdevice PipeWire";
+        }
+      ];
+    };
   };
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
@@ -216,6 +221,8 @@ programs.hyprland = {
     }; 
   };
   # virtualisation.vmware.host.enable = true;
+  
+  programs.xwayland.enable = true;
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";

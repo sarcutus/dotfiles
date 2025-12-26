@@ -6,6 +6,7 @@
 #    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,10 +35,10 @@
 #     url = "github:Daholli/hy3";
 #      inputs.hyprland.follows = "hyprland";
 #    };
-#    wezterm = {
-#      url = "github:wezterm/wezterm/main";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    wezterm = {
+      url = "github:wezterm/wezterm?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 };  
   outputs = inputs @ {
     self,
@@ -53,11 +54,23 @@
     nixosConfigurations = {
       Sarcutusdevice02 = nixpkgs.lib.nixosSystem {
         modules = [
+          inputs.mangowc.nixosModules.mango
+          {
+            programs.mango.enable = true;
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+#              wayland.windowManager.mangowc = {
+#                enable = true;
+#                extraConfig = builtins.readFile (./mango/config.conf);
+#                autostart.sh = ''
+#                  waybar &
+#                  hyprpaper &
+#                '';
+#              };
               extraSpecialArgs = {inherit self inputs;};
               backupFileExtension = "backup";
               users.sarcutus = ./home.nix;

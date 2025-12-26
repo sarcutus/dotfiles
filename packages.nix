@@ -93,9 +93,6 @@
     pkgs.bemenu
     pkgs.waybar
     pkgs.wayland-utils
-    pkgs.wezterm
-    pkgs.tmux
-    pkgs.tmuxp
     pkgs.zsh
     pkgs.fish
     pkgs.nushell
@@ -155,5 +152,6 @@
     pkgs.fastfetch
     pkgs.neofetch
     pkgs.crystal-dock
+    pkgs.foot
   ];
 }

@@ -28,7 +28,7 @@
 #      waybar &
 #      hyprpaper &
 #    '';
-#  };
+# };
 
   wayland.windowManager.sway = {
 #     enable = true;
@@ -52,11 +52,16 @@
 
   # programs.bash.enable = true;
 
+#  wayland.windowManager.mangowc = {
+#    enable = true;
+#    settings = builtins.readFile (./mango/config.conf);
+#    };
+
   programs.wezterm = {
     enable = true;
     enableBashIntegration = true;  # Optional: Enable Bash integration
     enableZshIntegration = true;    # Optional: Enable Zsh integration
-    package = pkgs.wezterm;         # Specify the WezTerm package
+    package = inputs.wezterm.packages.${pkgs.system}.default;
 #    extraConfig = builtins.readFile (./wezterm/wezterm.lua);
   };
   
