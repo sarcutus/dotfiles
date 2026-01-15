@@ -1,6 +1,6 @@
 #! /run/current-system/sw/bin/bash
 
-# wezterm-mux-server &
-waybar -c ./mango/config.jsonc &
-hyprpaper &
-crystal-dock-2.15 &
+exec wezterm-mux-server >/dev/null 2>&1 &
+exec waybar -c /home/sarcutusdotfiles/mango/config.jsonc >/dev/null 2>&1 &
+exec hyprpaper & >/dev/null 2>&1 &
+exec crystal-dock & >/dev/null 2>&1 &

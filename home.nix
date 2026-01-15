@@ -21,14 +21,14 @@
     extraConfig = builtins.readFile (./hypr/hyprland.conf);
   };
 
-#  wayland.windowManager.mangowc = {
+#  wayland.windowManager.mango = {
 #    enable = true;
 #    extraConfig = builtins.readFile (./mango/config.conf);
 #    autostart.sh = ''
 #      waybar &
 #      hyprpaper &
 #    '';
-# };
+#  };
 
   wayland.windowManager.sway = {
 #     enable = true;
@@ -50,19 +50,29 @@
      plugins = with pkgs.vimPlugins; [ vim-airline ];
      };
 
-  # programs.bash.enable = true;
+  programs.eza = {
+    enable = true;
+    git = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = false; # We don't want to overwrite nushell's native ls
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+    extraOptions = [
+      "--group-directories-first"
+      "--header"
+      "--icons=auto"
+    ];
+  };
+  home.shellAliases.tree = "eza --tree";
 
-#  wayland.windowManager.mangowc = {
-#    enable = true;
-#    settings = builtins.readFile (./mango/config.conf);
-#    };
+  # programs.bash.enable = true;
 
   programs.wezterm = {
     enable = true;
     enableBashIntegration = true;  # Optional: Enable Bash integration
     enableZshIntegration = true;    # Optional: Enable Zsh integration
     package = inputs.wezterm.packages.${pkgs.system}.default;
-#    extraConfig = builtins.readFile (./wezterm/wezterm.lua);
+    extraConfig = builtins.readFile (./sarcutusdotfiles/wezterm/wezterm.lua);
   };
   
   qt = {

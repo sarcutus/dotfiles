@@ -87,7 +87,7 @@
   services.clamav.daemon.enable = true;
 
   services.clamav.updater.enable = true;
-
+  
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
@@ -111,7 +111,13 @@
     # alsa.enable.support32Bit = true;
   };
 
-  services.power-profiles-daemon.enable = true;
+  services.tlp = {
+  enable = true;
+  settings = {
+    START_CHARGE_THRESH_BAT0 = 60; # Start charging below 60%
+    STOP_CHARGE_THRESH_BAT0 = 80;  # Stop charging above 80%
+  };
+};
 
   services.fprintd.enable = true;
 
@@ -197,7 +203,6 @@
   programs.git.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
-#   programs.uwsm.enable = true;
   programs.waybar.enable = true;
 #  programs.sway = {
 #    enable = true;
@@ -222,7 +227,18 @@ programs.hyprland = {
     }; 
   };
   # virtualisation.vmware.host.enable = true;
-  
+
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      mangowc = {
+        prettyName = "MangoWC";
+        comment = "Mango Wayland Compositor under UWSM";
+        binPath = "${pkgs.mangowc}/bin/mango";
+      };
+    };
+  };
+
   programs.xwayland.enable = true;
 
   environment.variables = {
