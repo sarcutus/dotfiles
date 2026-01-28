@@ -8,6 +8,7 @@
     pkgs.git-credential-manager
     pkgs.sway
     pkgs.home-manager
+    pkgs.mission-center
     pkgs.lightdm
     pkgs.easyeffects
     pkgs.egl-wayland
@@ -22,7 +23,7 @@
     pkgs.i3
     pkgs.hypr
     pkgs.mesa
-    pkgs.polybarFull
+    # pkgs.polybarFull
     pkgs.networkmanager
     pkgs.rPackages.rust
     pkgs.rustc
@@ -79,6 +80,9 @@
     pkgs.dbus-broker
     pkgs.ghostty
     pkgs.power-profiles-daemon
+    pkgs.upower
+    pkgs.upower-notify
+    pkgs.xeyes
     # pkgs.texlivePackages.noto-emoji
     pkgs.font-awesome
     pkgs.font-awesome_4
@@ -93,9 +97,6 @@
     pkgs.bemenu
     pkgs.waybar
     pkgs.wayland-utils
- #   pkgs.wezterm
-    pkgs.tmux
-    pkgs.tmuxp
     pkgs.zsh
     pkgs.fish
     pkgs.nushell
@@ -114,7 +115,7 @@
     pkgs.wl-clipboard
 #    pkgs.mako
     pkgs.lightdm
-    pkgs.xfce.xfdesktop
+    pkgs.xfdesktop
     pkgs.kdePackages.sddm
     pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     pkgs.easyeffects
@@ -155,5 +156,11 @@
     pkgs.fastfetch
     pkgs.neofetch
     pkgs.crystal-dock
+    pkgs.foot
+    pkgs.hypridle
+    pkgs.swayidle
+    pkgs.microsoft-edge
+    pkgs.hyprlock
+    pkgs.mangowc
   ];
 }

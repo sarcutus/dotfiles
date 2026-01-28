@@ -5,13 +5,13 @@
 }: {
  
   wayland.windowManager.hyprland = {
-    enable = true;
+#    enable = true;
     # set the flake package
     package = pkgs.hyprland;
     # make sure to also set the portal package, so that they are in sync
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     plugins = [
-#      pkgs.hyprland
+    pkgs.hyprland
     pkgs.hyprlandPlugins.hy3
 #      pkgs.hyprlandPlugins.hyprscrolling
 #      inputs.hy3.packages.${pkgs.system}.hy3
@@ -21,7 +21,16 @@
     extraConfig = builtins.readFile (./hypr/hyprland.conf);
   };
 
-   wayland.windowManager.sway = {
+#  wayland.windowManager.mango = {
+#    enable = true;
+#    extraConfig = builtins.readFile (./mango/config.conf);
+#    autostart.sh = ''
+#      waybar &
+#      hyprpaper &
+#    '';
+#  };
+
+  wayland.windowManager.sway = {
 #     enable = true;
      systemd = {
        enable = true;
@@ -41,14 +50,29 @@
      plugins = with pkgs.vimPlugins; [ vim-airline ];
      };
 
+  programs.eza = {
+    enable = true;
+    git = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = false; # We don't want to overwrite nushell's native ls
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+    extraOptions = [
+      "--group-directories-first"
+      "--header"
+      "--icons=auto"
+    ];
+  };
+  home.shellAliases.tree = "eza --tree";
+
   # programs.bash.enable = true;
 
   programs.wezterm = {
     enable = true;
     enableBashIntegration = true;  # Optional: Enable Bash integration
     enableZshIntegration = true;    # Optional: Enable Zsh integration
-    package = pkgs.wezterm;         # Specify the WezTerm package
-#    extraConfig = builtins.readFile (./wezterm/wezterm.lua);
+    package = inputs.wezterm.packages.${pkgs.system}.default;
+    extraConfig = builtins.readFile (./sarcutusdotfiles/wezterm/wezterm.lua);
   };
   
   qt = {

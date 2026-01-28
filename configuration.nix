@@ -87,7 +87,7 @@
   services.clamav.daemon.enable = true;
 
   services.clamav.updater.enable = true;
-
+  
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
@@ -99,6 +99,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
 
   # Enable sound.
   # hardware.pulseaudio.enable = true;
@@ -110,7 +111,13 @@
     # alsa.enable.support32Bit = true;
   };
 
-  services.power-profiles-daemon.enable = true;
+  services.tlp = {
+  enable = true;
+  settings = {
+    START_CHARGE_THRESH_BAT0 = 60; # Start charging below 60%
+    STOP_CHARGE_THRESH_BAT0 = 80;  # Stop charging above 80%
+  };
+};
 
   services.fprintd.enable = true;
 
@@ -177,26 +184,16 @@
   services.mpd = {
     enable = true;
     user = "sarcutus";
-    musicDirectory = "/home/sarcutus/Music";
-    playlistDirectory = "/home/sarcutus/Music/A list of playlists";
-    extraConfig = ''
-#        audio_output {
-#        type "pulse"
-#        name "Pulseaudio"
-#        server "127.0.0.1" # add this line - MPD must connect to the local sound server
-#      }
-        audio_output {
-        type "pipewire"
-        name "Sarcutusdevice PipeWire"
-      }
-#        audio_output {
-#        type "alsa"
-#        name "ALSA"    
-#      }
-    '';
-    # Optional: Allow non-localhost connections
-    #  network.listenAddress = "any";
-    #  network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    settings = {
+      playlist_directory = "/home/sarcutus/Music/A list of playlists";
+      music_directory = "/home/sarcutus/Music";
+      audio_output = [
+        {
+          type = "pipewire";
+          name = "Sarcutusdevice PipeWire";
+        }
+      ];
+    };
   };
   systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
@@ -206,14 +203,13 @@
   programs.git.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
-#   programs.uwsm.enable = true;
   programs.waybar.enable = true;
 #  programs.sway = {
 #    enable = true;
 #  }; 
 
 programs.hyprland = {
-  enable = true;
+#  enable = true;
   withUWSM = true;
   };
   # programs.hyprland.xwayland.enable = true;
@@ -231,6 +227,19 @@ programs.hyprland = {
     }; 
   };
   # virtualisation.vmware.host.enable = true;
+
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      mangowc = {
+        prettyName = "MangoWC";
+        comment = "Mango Wayland Compositor under UWSM";
+        binPath = "${pkgs.mangowc}/bin/mango";
+      };
+    };
+  };
+
+  programs.xwayland.enable = true;
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
