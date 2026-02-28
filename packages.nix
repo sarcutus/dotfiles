@@ -9,25 +9,32 @@
     pkgs.sway
     pkgs.home-manager
     pkgs.mission-center
-    pkgs.lightdm
+    # pkgs.lightdm
+    pkgs.bluetuith
+    pkgs.yazi
     pkgs.easyeffects
+    pkgs.cmus
+    pkgs.fzf
+    pkgs.pay-respects
+    pkgs.zoxide
     pkgs.egl-wayland
     pkgs.wayland-protocols
     pkgs.wayland
     pkgs.libxkbcommon
     pkgs.libdrm
     pkgs.wlogout
-    pkgs.python312
-    pkgs.python313
+    # pkgs.python312
+    # pkgs.python313
     pkgs.gcc
     pkgs.i3
     pkgs.hypr
     pkgs.mesa
     # pkgs.polybarFull
+    pkgs.ocs-url
     pkgs.networkmanager
     pkgs.rPackages.rust
     pkgs.rustc
-    # pkgs.python314
+    pkgs.python314
     # pkgs.python311
     # pkgs.python310
     # pkgs.cantata
@@ -99,8 +106,8 @@
     pkgs.wayland-utils
     pkgs.zsh
     pkgs.fish
-    pkgs.nushell
-    pkgs.elvish
+    # pkgs.nushell
+    # pkgs.elvish
     pkgs.linuxKernel.kernels.linux_xanmod_latest
 #    pkgs.vmware-workstation
 #    pkgs.linuxKernel.kernels.linux_xanmod.vmware
@@ -114,9 +121,8 @@
     pkgs.slurp
     pkgs.wl-clipboard
 #    pkgs.mako
-    pkgs.lightdm
-    pkgs.xfdesktop
-    pkgs.kdePackages.sddm
+    # pkgs.xfdesktop
+    # pkgs.kdePackages.sddm
     pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     pkgs.easyeffects
     pkgs.nwg-dock-hyprland
@@ -155,6 +161,7 @@
     pkgs.proton-authenticator
     pkgs.fastfetch
     pkgs.neofetch
+    pkgs.wofi
     pkgs.crystal-dock
     pkgs.foot
     pkgs.hypridle

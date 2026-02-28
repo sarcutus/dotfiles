@@ -3,13 +3,13 @@
   description = "NixOS configuration";
 
   inputs = {
-#    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+#        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";
     nixgl.url = "github:nix-community/nixGL";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mangowc = {
@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-plugins = {
@@ -29,7 +29,7 @@
 #      inputs.hyprland.follows = "hyprland";
 #    };
     hy3 = {
-      url = "github:outfoxxed/hy3";
+      url = "github:outfoxxed/hy3/master";
       inputs.hyprland.follows = "hyprland";
     };
 #    hy3 = {

@@ -119,13 +119,13 @@
   };
 };
 
-  services.fprintd.enable = true;
+  # services.fprintd.enable = true;
 
-  services.fprintd.tod.enable = true;
+  # services.fprintd.tod.enable = true;
 
   #  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
 
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # (On my device it only worked with this driver)
+  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # (On my device it only worked with this driver)
 
   services.dbus.implementation = "broker";
 
@@ -184,20 +184,13 @@
   services.mpd = {
     enable = true;
     user = "sarcutus";
-    settings = {
-      playlist_directory = "/home/sarcutus/Music/A list of playlists";
-      music_directory = "/home/sarcutus/Music";
-      audio_output = [
-        {
-          type = "pipewire";
-          name = "Sarcutusdevice PipeWire";
-        }
-      ];
-    };
+    playlistDirectory = "/home/sarcutus/Music/A list of playlists";
+    musicDirectory = "/home/sarcutus/Music";
+    extraConfig = builtins.readFile (./.config/mpd/mpd.conf);
   };
-  systemd.services.mpd.environment = {
+    systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
-  };
+    };
 
   programs.zsh.autosuggestions.enable = true;
   programs.git.enable = true;

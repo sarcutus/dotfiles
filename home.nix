@@ -5,7 +5,7 @@
 }: {
  
   wayland.windowManager.hyprland = {
-#    enable = true;
+    enable = true;
     # set the flake package
     package = pkgs.hyprland;
     # make sure to also set the portal package, so that they are in sync
@@ -72,7 +72,7 @@
     enableBashIntegration = true;  # Optional: Enable Bash integration
     enableZshIntegration = true;    # Optional: Enable Zsh integration
     package = inputs.wezterm.packages.${pkgs.system}.default;
-    extraConfig = builtins.readFile (./sarcutusdotfiles/wezterm/wezterm.lua);
+#    extraConfig = builtins.readFile (./.config/wezterm/wezterm.lua);
   };
   
   qt = {
