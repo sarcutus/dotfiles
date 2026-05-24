@@ -9,38 +9,69 @@
     pkgs.sway
     pkgs.home-manager
     pkgs.mission-center
-    pkgs.lightdm
+    # pkgs.lightdm
+    pkgs.gruvbox-dark-gtk
+    pkgs.noctalia-shell
+    pkgs.blueman
+    pkgs.bluetuith
+    pkgs.yazi
+    pkgs.xwayland-satellite
+    pkgs.gnome-weather
+    pkgs.gnome-characters
     pkgs.easyeffects
+    pkgs.cmus
+    pkgs.fzf
+    pkgs.hyprsunset
+    pkgs.themechanger
+    pkgs.pay-respects
+    pkgs.most
+    pkgs.mtr
+    pkgs.zoxide
     pkgs.egl-wayland
     pkgs.wayland-protocols
     pkgs.wayland
     pkgs.libxkbcommon
+    pkgs.libinput
     pkgs.libdrm
     pkgs.wlogout
-    pkgs.python312
+    pkgs.mousam
+    pkgs.fortune
+    pkgs.cyme
+    pkgs.cheese
+    pkgs.guvcview
+    pkgs.qmplay2
+    pkgs.hyprlauncher
+    pkgs.weechat
+    pkgs.hwinfo
+    # pkgs.python312
     pkgs.python313
+    pkgs.niri
+    pkgs.bottom
+    pkgs.v4l-utils
     pkgs.gcc
     pkgs.i3
     pkgs.hypr
     pkgs.mesa
+    pkgs.cava
     # pkgs.polybarFull
+    pkgs.ocs-url
     pkgs.networkmanager
     pkgs.rPackages.rust
     pkgs.rustc
-    # pkgs.python314
+    pkgs.python314
     # pkgs.python311
     # pkgs.python310
     # pkgs.cantata
     # pkgs.hyprland
     # pkgs.hyprlandPlugins.hy3
     pkgs.dmenu
-    pkgs.xorg.xorgserver
+    pkgs.xorg-server
     pkgs.rocmPackages.clr
     pkgs.rocmPackages.rocm-smi
     pkgs.btop 
     pkgs.google-authenticator
     pkgs.clamav
-    pkgs.telegram-desktop
+#    pkgs.telegram-desktop
     pkgs.iotop
     pkgs.mpc
     pkgs.dwl
@@ -67,11 +98,12 @@
     pkgs.hyprwayland-scanner
     pkgs.libreoffice
     pkgs.wlroots
+    pkgs.swaybg
     # pkgs.chromium
     pkgs.distrobox
     pkgs.distrobox-tui
     pkgs.discord
-    pkgs.linuxKernel.packages.linux_xanmod.vmware
+#    pkgs.linuxKernel.packages.linux_xanmod.vmware
     pkgs.jq
     pkgs.jqp
     pkgs.nss
@@ -99,9 +131,9 @@
     pkgs.wayland-utils
     pkgs.zsh
     pkgs.fish
-    pkgs.nushell
-    pkgs.elvish
-    pkgs.linuxKernel.kernels.linux_xanmod_latest
+    # pkgs.nushell
+    # pkgs.elvish
+#    pkgs.linuxKernel.kernels.linux_xanmod_latest
 #    pkgs.vmware-workstation
 #    pkgs.linuxKernel.kernels.linux_xanmod.vmware
     pkgs.open-vm-tools
@@ -114,9 +146,8 @@
     pkgs.slurp
     pkgs.wl-clipboard
 #    pkgs.mako
-    pkgs.lightdm
-    pkgs.xfdesktop
-    pkgs.kdePackages.sddm
+    # pkgs.xfdesktop
+    # pkgs.kdePackages.sddm
     pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     pkgs.easyeffects
     pkgs.nwg-dock-hyprland
@@ -154,7 +185,7 @@
     pkgs.tor-browser
     pkgs.proton-authenticator
     pkgs.fastfetch
-    pkgs.neofetch
+    pkgs.wofi
     pkgs.crystal-dock
     pkgs.foot
     pkgs.hypridle

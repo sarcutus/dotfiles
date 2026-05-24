@@ -4,22 +4,22 @@
   ...
 }: {
  
-  wayland.windowManager.hyprland = {
-#    enable = true;
+#   wayland.windowManager.hyprland = {
+#     enable = true;
     # set the flake package
-    package = pkgs.hyprland;
+#     package = pkgs.hyprland;
     # make sure to also set the portal package, so that they are in sync
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-    plugins = [
-    pkgs.hyprland
-    pkgs.hyprlandPlugins.hy3
+#     portalPackage = pkgs.xdg-desktop-portal-hyprland;
+#     plugins = [
+#     pkgs.hyprland
+#      pkgs.hyprlandPlugins.hy3
 #      pkgs.hyprlandPlugins.hyprscrolling
-#      inputs.hy3.packages.${pkgs.system}.hy3
-#      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-#      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-    ];
-    extraConfig = builtins.readFile (./hypr/hyprland.conf);
-  };
+#      inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3
+#      inputs.hyprland-plugins.packages.${pkgs.hostPlatform.system}.hyprbars
+#      inputs.Hyprspace.packages.${pkgs.hostPlatform.system}.Hyprspace
+#     ];
+#    extraConfig = builtins.readFile (./hypr/hyprland.conf);
+#  };
 
 #  wayland.windowManager.mango = {
 #    enable = true;
@@ -30,16 +30,20 @@
 #    '';
 #  };
 
-  wayland.windowManager.sway = {
+   wayland.windowManager.sway = {
 #     enable = true;
      systemd = {
        enable = true;
        };
      package = pkgs.sway;
      extraConfig = builtins.readFile (./sway/config);
-   };
+  };
 
-  xsession.windowManager.i3 = {
+   services.swayosd = {
+     enable = true;
+  };
+
+   xsession.windowManager.i3 = {
 #    enable = true;
     package = pkgs.i3;
 #    extraConfig = builtins.readFile (./i3/config);
@@ -71,8 +75,8 @@
     enable = true;
     enableBashIntegration = true;  # Optional: Enable Bash integration
     enableZshIntegration = true;    # Optional: Enable Zsh integration
-    package = inputs.wezterm.packages.${pkgs.system}.default;
-    extraConfig = builtins.readFile (./sarcutusdotfiles/wezterm/wezterm.lua);
+    package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+#    extraConfig = builtins.readFile (./.config/wezterm/wezterm.lua);
   };
   
   qt = {
@@ -80,9 +84,10 @@
     platformTheme.name = "qtct";
   };
   
-#  programs.rmpc.config = {
-#    extraConfig = builtins.readFile (./rmpc/config_nord.ron);
-#  };
+  programs.rmpc = {
+    enable = true;
+    # extraConfig = builtins.readFile (./.config/rmpc/config_nord.ron);
+  };
 
   # The state version is required and should stay at the version you
   # originally installed.

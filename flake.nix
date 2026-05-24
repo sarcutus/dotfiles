@@ -3,8 +3,8 @@
   description = "NixOS configuration";
 
   inputs = {
-#    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";
     nixgl.url = "github:nix-community/nixGL";
@@ -16,22 +16,22 @@
       url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins/main";
-      inputs.hyprland.follows = "hyprland";
-    };
+#    hyprland = {
+#      url = "github:hyprwm/Hyprland/main";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
+#    hyprland-plugins = {
+#      url = "github:hyprwm/hyprland-plugins/main";
+#      inputs.hyprland.follows = "hyprland";
+#    };
 #    Hyprspace = {
 #      url = "github:KZDKM/Hyprspace";
 #      inputs.hyprland.follows = "hyprland";
 #    };
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
+#    hy3 = {
+#      url = "github:outfoxxed/hy3/master";
+#      inputs.hyprland.follows = "hyprland";
+#    };
 #    hy3 = {
 #     url = "github:Daholli/hy3";
 #      inputs.hyprland.follows = "hyprland";
@@ -65,7 +65,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-#              wayland.windowManager.mangowc = {
+#              windowManager.mangowc = {
 #                enable = true;
 #                extraConfig = builtins.readFile (./mango/config.conf);
 #                autostart.sh = ''
