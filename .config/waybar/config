@@ -2,7 +2,7 @@
     "layer": "top",
     "margin": 4,
     "spacing": 8,
-    "modules-left": ["sway/workspaces", "hyprland/workspaces", "sway/mode", "sway/window", "hyprland/window" ],
+    "modules-left": ["sway/workspaces", "hyprland/workspaces", "sway/mode", "sway/window", "hyprland/window", "mpris" ],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "network", "battery", "pulseaudio", "backlight", "memory", "temperature", "tray", "power-profiles-daemon", "custom/notification", "custom/power"],
     "hyprland/workspaces": {
@@ -39,7 +39,7 @@
 	},
 	"status-icons": {
 		"paused": "⏸"
-	},
+	}
 	// "ignored-players": ["firefox"]
     },
     "pulseaudio": {
@@ -69,7 +69,7 @@
      "format": "{percent}% {icon}",
      "on-scroll-up":   "brightnessctl s 1%+",
      "on-scroll-down": "brightnessctl s 1%-",
-     "format-icons": ["", ""],
+     "format-icons": ["", ""]
      },
      "custom/notification": {
   	"tooltip": "true",
@@ -82,14 +82,14 @@
     	"inhibited-notification": " ",
     	"inhibited-none": "",
     	"dnd-inhibited-notification": " ",
-    	"dnd-inhibited-none": " ",
+    	"dnd-inhibited-none": " "
       },
       "return-type": "json",
       "exec-if": "which swaync-client",
       "exec": "swaync-client -swb",
       "on-click": "sleep 0.1 && swaync-client -t -sw",
       "on-click-right": "sleep 0.1 && swaync-client -d -sw",
-      "escape": true,
+      "escape": true
       },
       "network": {
 	"format": "{ifname}",
@@ -120,10 +120,10 @@
       "custom/power": {
         "format": "",  
         "tooltip": false, 
-        "on-click": "wlogout --protocol layer-shell",
+        "on-click": "wlogout --protocol layer-shell"
 	}
     }
-},
+}
   }
 }
 }	

@@ -4,7 +4,7 @@
 (
     address: "127.0.0.1:6600",
     password: None,
-    theme: Nord,
+    theme: None,
     cache_dir: None,
     on_song_change: None,
     volume_step: 1,
@@ -13,7 +13,7 @@
     wrap_navigation: true,
     enable_mouse: true,
     status_update_interval_ms: 1000,
-    select_current_song_on_change: false,
+    select_current_song_on_change: true,
     album_art: (
         method: Auto,
         max_size_px: (width: 1200, height: 1200),
