@@ -5,15 +5,15 @@
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils.url = "github:numtide/flake-utils";
-    nixgl.url = "github:nix-community/nixGL";
+    flake-parts.url = "git+https://github.com/hercules-ci/flake-parts";
+    flake-utils.url = "git+https://github.com/numtide/flake-utils";
+    nixgl.url = "git+https://github.com/nix-community/nixGL";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "git+https://github.com/nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mangowc = {
-      url = "github:DreamMaoMao/mangowc";
+      url = "git+https://github.com/DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 #    hyprland = {
@@ -36,10 +36,14 @@
 #     url = "github:Daholli/hy3";
 #      inputs.hyprland.follows = "hyprland";
 #    };
-    wezterm = {
-      url = "github:wezterm/wezterm?dir=nix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+#    wezterm = {
+#      url = "git+https://github.com/wezterm/wezterm?dir=nix";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
 };  
   outputs = inputs @ {
     self,
@@ -48,6 +52,8 @@
     flake-parts,
     home-manager,
     mangowc,
+    noctalia,
+#    wezterm,
 #    hyprland,
 #    hyprland-plugins,
 #    hy3,
@@ -56,10 +62,10 @@
     nixosConfigurations = {
       Sarcutusdevice02 = nixpkgs.lib.nixosSystem {
         modules = [
-          inputs.mangowc.nixosModules.mango
-          {
-            programs.mango.enable = true;
-          }
+#          inputs.mangowc.nixosModules.mango
+#          {
+#            programs.mango.enable = true;
+#          }
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -78,6 +84,7 @@
               users.sarcutus = ./home.nix;
             };
           }
+          ./noctalia.nix
           ./configuration.nix
           ./packages.nix
 #          ./vim.nix

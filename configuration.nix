@@ -40,6 +40,10 @@
   ];
   hardware.bluetooth.enable = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -120,7 +124,19 @@
     STOP_CHARGE_THRESH_BAT0 = 80;  # Stop charging above 80%
   };
 };
+  
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "niri-session -l";
+        user = "sarcutus";
+      };
+    };
+  };
 
+  programs.niri.enable = true;
+  
   # services.fprintd.enable = true;
 
   # services.fprintd.tod.enable = true;
@@ -137,7 +153,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sarcutus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "sudo" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -289,6 +305,11 @@ programs.hyprland = {
   services.openssh.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
+
+#  programs.regreet.enable = true;
+
+#  programs.mpd-mpris.package = pkgs.mpd-mpris;
+#  services.mpd-mpris.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

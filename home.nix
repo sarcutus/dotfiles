@@ -39,9 +39,9 @@
      extraConfig = builtins.readFile (./sway/config);
   };
 
-   services.swayosd = {
-     enable = true;
-  };
+#   services.swayosd = {
+#     enable = true;
+#  };
 
    xsession.windowManager.i3 = {
 #    enable = true;
@@ -71,13 +71,15 @@
 
   # programs.bash.enable = true;
 
-  programs.wezterm = {
-    enable = true;
-    enableBashIntegration = true;  # Optional: Enable Bash integration
-    enableZshIntegration = true;    # Optional: Enable Zsh integration
-    package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  services.mpd-mpris.enable = true;
+  
+#  programs.wezterm = {
+#    enable = true;
+#    enableBashIntegration = true;  # Optional: Enable Bash integration
+#    enableZshIntegration = true;    # Optional: Enable Zsh integration
+#    package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
 #    extraConfig = builtins.readFile (./.config/wezterm/wezterm.lua);
-  };
+#  };
   
   qt = {
     enable = true;
