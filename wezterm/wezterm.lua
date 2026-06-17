@@ -10,11 +10,11 @@ config.enable_wayland = true
 
 front_end = "OpenGL"
 
-config.background = {
-	source = {
-		File = "/home/sarcutus/Pictures/R.jpeg",
-	},
-}
+-- config.background = {
+-- 	source = {
+--		File = "/home/sarcutus/Pictures/R.jpeg",
+--	},
+-- }
 
 return {
     unix_domains = { {

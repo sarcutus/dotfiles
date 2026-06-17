@@ -6,25 +6,40 @@
   environment.systemPackages = [
     pkgs.git
     pkgs.git-credential-manager
+    pkgs.lazygit
+    pkgs.yaziPlugins.lazygit
+    pkgs.vimPlugins.lazygit-nvim
     pkgs.sway
     pkgs.home-manager
     pkgs.mission-center
     # pkgs.lightdm
+    pkgs.eog
+#    pkgs.noctalia-qs
     pkgs.gruvbox-dark-gtk
-    pkgs.noctalia-shell
+#    pkgs.redshift
+#    pkgs.noctalia-shell
+    pkgs.code-cursor
     pkgs.blueman
     pkgs.bluetuith
     pkgs.yazi
+    pkgs.ut1999
     pkgs.xwayland-satellite
     pkgs.gnome-weather
+    pkgs.geoclue2
     pkgs.gnome-characters
     pkgs.easyeffects
+    pkgs.regreet
+    pkgs.claude-code
+    pkgs.codeblocks
+    pkgs.python314Packages.python-docx
     pkgs.cmus
+    pkgs.xterm
     pkgs.fzf
     pkgs.hyprsunset
     pkgs.themechanger
     pkgs.pay-respects
     pkgs.most
+    pkgs.playerctl
     pkgs.mtr
     pkgs.zoxide
     pkgs.egl-wayland
@@ -44,8 +59,8 @@
     pkgs.weechat
     pkgs.hwinfo
     # pkgs.python312
-    pkgs.python313
-    pkgs.niri
+    pkgs.python314
+#    pkgs.niri
     pkgs.bottom
     pkgs.v4l-utils
     pkgs.gcc
@@ -158,7 +173,7 @@
     # pkgs.google-chrome
     pkgs.swaylock-effects
     pkgs.hyprpolkitagent
-    pkgs.swaynotificationcenter
+#    pkgs.swaynotificationcenter
     pkgs.swayosd
     pkgs.rmpc
     (pkgs.callPackage ./crystal-remix-icon-theme.nix { })
@@ -193,5 +208,7 @@
     pkgs.microsoft-edge
     pkgs.hyprlock
     pkgs.mangowc
+    pkgs.wezterm
+    pkgs.mpd-mpris
   ];
 }
