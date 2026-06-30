@@ -18,22 +18,21 @@
     ./packages.nix
     ./services.nix
     ./programs.nix
-#    ./vim.nix
-#    ./crystal-remix-icon-theme.nix
-#    ./cachix.nix
+    #    ./vim.nix
+    #    ./crystal-remix-icon-theme.nix
+    #    ./cachix.nix
   ];
-  
-  home-manager.users.sarcutus.imports = [./home.nix];
+
+  home-manager.users.sarcutus.imports = [ ./home.nix ];
 
   boot.kernelModules = [ "amdgpu" ];
-  
+
   hardware.amdgpu = {
     opencl.enable = true;
     legacySupport.enable = true;
     initrd.enable = true;
   };
 
-  
   swapDevices = [
     {
       device = "/dev/nvme0n1p2";
@@ -81,13 +80,10 @@
   # };
 
   # Enable the X11 windowing system.
-#    enable = true;
-#    config = builtins.readFile (./i3/config);
-#  };
+  #    enable = true;
+  #    config = builtins.readFile (./i3/config);
+  #  };
 
-  
-
-  
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
@@ -100,19 +96,17 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
-  
-  
-
-
-
-
 
   # Enable touchpad support (enabled default in most desktopManager).
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sarcutus = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "sudo" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "sudo"
+    ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -126,7 +120,6 @@
 
   # Enable the 1Passsword GUI with myself as an authorized user for polkit
 
-
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -139,7 +132,7 @@
   };
 
   security.polkit.enable = true;
-  
+
   xdg.icons.enable = true;
 
   xdg.portal = {
@@ -150,18 +143,17 @@
     ];
     config.common = {
       default = [ "gtk" ];
-    }; 
+    };
   };
   # virtualisation.vmware.host.enable = true;
   virtualisation.libvirtd.enable = true;
-  
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland";
-#    CMAKE_MAKE_PROGRAM = "cmake";
-#    CMAKE_C_COMPILER = "gcc";
-#    CMAKE_CXX_COMPILER = "gcc";
+    #    CMAKE_MAKE_PROGRAM = "cmake";
+    #    CMAKE_C_COMPILER = "gcc";
+    #    CMAKE_CXX_COMPILER = "gcc";
     DISPLAY = ":0";
     WAYLAND_DISPLAY = ":0";
   };
@@ -185,8 +177,6 @@
   # started in user sessions.
 
   # Enable the OpenSSH daemon.
-
-
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

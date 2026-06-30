@@ -1,8 +1,9 @@
 {
   config,
-  pkgs, 
+  pkgs,
   ...
-}: {
+}:
+{
   environment.systemPackages = [
     pkgs.git
     pkgs.git-credential-manager
@@ -14,10 +15,10 @@
     pkgs.mission-center
     # pkgs.lightdm
     pkgs.eog
-#    pkgs.noctalia-qs
+    #    pkgs.noctalia-qs
     pkgs.gruvbox-dark-gtk
-#    pkgs.redshift
-#    pkgs.noctalia-shell
+    #    pkgs.redshift
+    #    pkgs.noctalia-shell
     pkgs.tuigreet
     pkgs.proton-vpn
     pkgs.code-cursor
@@ -37,7 +38,8 @@
     pkgs.gnome-characters
     pkgs.tor
     pkgs.easyeffects
-#    pkgs.regreet
+    #    pkgs.regreet
+    pkgs.nixfmt
     pkgs.claude-code
     pkgs.codeblocks
     pkgs.python314Packages.python-docx
@@ -69,7 +71,7 @@
     pkgs.hwinfo
     # pkgs.python312
     pkgs.python314
-#    pkgs.niri
+    #    pkgs.niri
     pkgs.bottom
     pkgs.v4l-utils
     pkgs.gcc
@@ -92,10 +94,10 @@
     pkgs.xorg-server
     pkgs.rocmPackages.clr
     pkgs.rocmPackages.rocm-smi
-    pkgs.btop 
+    pkgs.btop
     pkgs.google-authenticator
     pkgs.clamav
-#    pkgs.telegram-desktop
+    #    pkgs.telegram-desktop
     pkgs.iotop
     pkgs.mpc
     pkgs.dwl
@@ -127,7 +129,7 @@
     pkgs.distrobox
     pkgs.distrobox-tui
     pkgs.discord
-#    pkgs.linuxKernel.packages.linux_xanmod.vmware
+    #    pkgs.linuxKernel.packages.linux_xanmod.vmware
     pkgs.jq
     pkgs.jqp
     pkgs.nss
@@ -157,9 +159,9 @@
     pkgs.fish
     # pkgs.nushell
     # pkgs.elvish
-#    pkgs.linuxKernel.kernels.linux_xanmod_latest
-#    pkgs.vmware-workstation
-#    pkgs.linuxKernel.kernels.linux_xanmod.vmware
+    #    pkgs.linuxKernel.kernels.linux_xanmod_latest
+    #    pkgs.vmware-workstation
+    #    pkgs.linuxKernel.kernels.linux_xanmod.vmware
     pkgs.open-vm-tools
     pkgs.curl
     pkgs.font-awesome
@@ -169,7 +171,7 @@
     pkgs.grim
     pkgs.slurp
     pkgs.wl-clipboard
-#    pkgs.mako
+    #    pkgs.mako
     # pkgs.xfdesktop
     # pkgs.kdePackages.sddm
     pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -183,7 +185,7 @@
     # pkgs.google-chrome
     pkgs.swaylock-effects
     pkgs.hyprpolkitagent
-#    pkgs.swaynotificationcenter
+    #    pkgs.swaynotificationcenter
     pkgs.swayosd
     pkgs.rmpc
     (pkgs.callPackage ./crystal-remix-icon-theme.nix { })
@@ -218,7 +220,7 @@
     pkgs.microsoft-edge
     pkgs.hyprlock
     pkgs.mangowc
-#    pkgs.wezterm
+    #    pkgs.wezterm
     pkgs.mpd-mpris
     pkgs.qemu_full
     pkgs.qemu_kvm
