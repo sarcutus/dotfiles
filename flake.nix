@@ -4,7 +4,7 @@
 
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "git+https://github.com/nixos/nixpkgs?ref=nixos-unstable";
     flake-parts.url = "git+https://github.com/hercules-ci/flake-parts";
     flake-utils.url = "git+https://github.com/numtide/flake-utils";
     nixgl.url = "git+https://github.com/nix-community/nixGL";
@@ -40,10 +40,10 @@
       url = "github:noctalia-dev/noctalia/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-#    wezterm = {
-#      url = "git+https://github.com/wezterm/wezterm?dir=nix";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    wezterm = {
+      url = "git+https://github.com/wezterm/wezterm?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 };  
   outputs = inputs @ {
     self,
@@ -53,7 +53,7 @@
     home-manager,
     mangowc,
     noctalia,
-#    wezterm,
+    wezterm,
 #    hyprland,
 #    hyprland-plugins,
 #    hy3,

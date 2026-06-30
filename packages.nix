@@ -18,17 +18,26 @@
     pkgs.gruvbox-dark-gtk
 #    pkgs.redshift
 #    pkgs.noctalia-shell
+    pkgs.tuigreet
+    pkgs.proton-vpn
     pkgs.code-cursor
+    pkgs.blackbox-terminal
+    pkgs.libvirt
+    pkgs.themechanger
+    pkgs.borgmatic
     pkgs.blueman
     pkgs.bluetuith
+    pkgs.nwg-look
+    pkgs.nyx
     pkgs.yazi
     pkgs.ut1999
     pkgs.xwayland-satellite
     pkgs.gnome-weather
     pkgs.geoclue2
     pkgs.gnome-characters
+    pkgs.tor
     pkgs.easyeffects
-    pkgs.regreet
+#    pkgs.regreet
     pkgs.claude-code
     pkgs.codeblocks
     pkgs.python314Packages.python-docx
@@ -164,6 +173,7 @@
     # pkgs.xfdesktop
     # pkgs.kdePackages.sddm
     pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.neovim
     pkgs.easyeffects
     pkgs.nwg-dock-hyprland
     pkgs.wget
@@ -208,7 +218,11 @@
     pkgs.microsoft-edge
     pkgs.hyprlock
     pkgs.mangowc
-    pkgs.wezterm
+#    pkgs.wezterm
     pkgs.mpd-mpris
+    pkgs.qemu_full
+    pkgs.qemu_kvm
+    pkgs.virt-manager
+    pkgs.spice-gtk
   ];
 }

@@ -73,13 +73,13 @@
 
   services.mpd-mpris.enable = true;
   
-#  programs.wezterm = {
-#    enable = true;
+  programs.wezterm = {
+    enable = true;
 #    enableBashIntegration = true;  # Optional: Enable Bash integration
-#    enableZshIntegration = true;    # Optional: Enable Zsh integration
-#    package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    enableZshIntegration = true;    # Optional: Enable Zsh integration
+    package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
 #    extraConfig = builtins.readFile (./.config/wezterm/wezterm.lua);
-#  };
+  };
   
   qt = {
     enable = true;
@@ -90,7 +90,7 @@
     enable = true;
     # extraConfig = builtins.readFile (./.config/rmpc/config_nord.ron);
   };
-
+  
   # The state version is required and should stay at the version you
   # originally installed.
   home.stateVersion = "24.11";

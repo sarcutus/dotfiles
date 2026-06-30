@@ -16,6 +16,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
+    ./services.nix
+    ./programs.nix
 #    ./vim.nix
 #    ./crystal-remix-icon-theme.nix
 #    ./cachix.nix
@@ -31,7 +33,6 @@
     initrd.enable = true;
   };
 
-  security.pam.services.sarcutus.googleAuthenticator.enable = true;
   
   swapDevices = [
     {
@@ -56,7 +57,6 @@
   networking.networkmanager.enable = true;
   # networking.useDHCP = true;
   # systemd.network.enable = true;
-  # services.resolved.enable  = true;
 
   # systemd.network.networks."wlp1s0" = {
   # networkConfig = {
@@ -81,18 +81,12 @@
   # };
 
   # Enable the X11 windowing system.
-#  services.xserver = {
 #    enable = true;
 #    config = builtins.readFile (./i3/config);
 #  };
 
-  # services.desktopManager.plasma6.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
   
-  services.clamav.daemon.enable = true;
 
-  services.clamav.updater.enable = true;
   
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
@@ -100,55 +94,20 @@
   nixpkgs.config.allowUnfree = true;
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplip ];
 
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    # alsa.enable.support32Bit = true;
-  };
-
-  services.tlp = {
-  enable = true;
-  settings = {
-    START_CHARGE_THRESH_BAT0 = 60; # Start charging below 60%
-    STOP_CHARGE_THRESH_BAT0 = 80;  # Stop charging above 80%
-  };
-};
   
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "niri-session -l";
-        user = "sarcutus";
-      };
-    };
-  };
-
-  programs.niri.enable = true;
   
-  # services.fprintd.enable = true;
 
-  # services.fprintd.tod.enable = true;
 
-  #  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
 
-  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # (On my device it only worked with this driver)
 
-  services.dbus.implementation = "broker";
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sarcutus = {
@@ -164,26 +123,9 @@
   };
 
   # Enable the 1Password CLI, this also enables a SGUID wrapper so the CLI can authorize against the GUI app
-  # programs._1password = {
-  #  enable = true;
-  # };
 
   # Enable the 1Passsword GUI with myself as an authorized user for polkit
-  # programs._1password-gui = {
-  #  enable = true;
-  #  polkitPolicyOwners = [ "sarcutus" ];
-  # };
 
-  programs.zsh = {
-    enable = true;
-    ohMyZsh.enable = true;
-    # ohMyZsh.plugins = [ "git" ];
-    # ohMyZsh.theme = "random";
-    syntaxHighlighting.enable = true;
-    enableCompletion = true;
-  };
-  
-  programs.steam.enable = true;
 
   nix.settings = {
     experimental-features = [
@@ -197,45 +139,9 @@
   };
 
   security.polkit.enable = true;
-
+  
   xdg.icons.enable = true;
 
-  services.mpd = {
-    enable = true;
-    user = "sarcutus";
-    settings = {
-      music_directory = "/home/sarcutus/Music";
-      playlist_directory = "/home/sarcutus/Music/A list of playlists";
-      # log_file = "/var/log/mpd.log";
-      audio_output = [
-        {
-          type = "pipewire";
-          name = "Sarcutusdevice PipeWire output";
-        }
-      ];
-    };
-  };
-    systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/1000"; 
-  };
-
-  programs.zsh.autosuggestions.enable = true;
-  programs.git.enable = true;
-  programs.fish.enable = true;
-  programs.firefox.enable = true;
-#  programs.waybar.enable = true;
-#  programs.sway = {
-#    enable = true;
-#  }; 
-
-programs.hyprland = {
-#  enable = true;
-#  withUWSM = true;
-  };
-  # programs.hyprland.xwayland.enable = true;
-  # programs.hyprland.systemd.setPath.enable = true;
-  programs.thunderbird.enable = true;
-  programs.tmux.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -247,23 +153,8 @@ programs.hyprland = {
     }; 
   };
   # virtualisation.vmware.host.enable = true;
-
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors = {
-      mangowc = {
-        prettyName = "MangoWC";
-        comment = "Mango Wayland Compositor under UWSM";
-        binPath = "${pkgs.mangowc}/bin/mango";
-      };
-      hyprland = {
-        prettyName = "Hyprland";
-        binPath = "${pkgs.hyprland}/bin/hyprland";
-      };
-    };
-  };
-
-  programs.xwayland.enable = true;
+  virtualisation.libvirtd.enable = true;
+  
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
@@ -291,25 +182,11 @@ programs.hyprland = {
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-  # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
 
-#  programs.regreet.enable = true;
-
-#  programs.mpd-mpris.package = pkgs.mpd-mpris;
-#  services.mpd-mpris.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
