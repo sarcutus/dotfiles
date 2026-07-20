@@ -5,7 +5,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   security.pam.services.sarcutus.googleAuthenticator.enable = true;
   services.clamav.daemon.enable = true;
   services.clamav.updater.enable = true;
@@ -19,13 +20,13 @@
   };
 
   services.tlp = {
-  enable = true;
-  settings = {
-    START_CHARGE_THRESH_BAT0 = 60; # Start charging below 60%
-    STOP_CHARGE_THRESH_BAT0 = 80;  # Stop charging above 80%
+    enable = true;
+    settings = {
+      START_CHARGE_THRESH_BAT0 = 60; # Start charging below 60%
+      STOP_CHARGE_THRESH_BAT0 = 80; # Stop charging above 80%
+    };
   };
-};
-services.greetd = {
+  services.greetd = {
     enable = true;
     settings = {
       default_session = {
@@ -51,10 +52,11 @@ services.greetd = {
       ];
     };
   };
-    systemd.services.mpd.environment = {
+  systemd.services.mpd.environment = {
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
   # services.polkit.enable = true;
   services.openssh.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  services.upower.enable = true;
 }

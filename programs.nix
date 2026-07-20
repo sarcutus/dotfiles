@@ -4,8 +4,9 @@
   pkgs,
   programs,
   ...
-}: {
-   programs.zsh = {
+}:
+{
+  programs.zsh = {
     enable = true;
     ohMyZsh.enable = true;
     # ohMyZsh.plugins = [ "git" ];
@@ -16,10 +17,10 @@
   programs.uwsm = {
     enable = true;
     waylandCompositors = {
-      mangowc = {
+      mango = {
         prettyName = "MangoWC";
         comment = "Mango Wayland Compositor under UWSM";
-        binPath = "${pkgs.mangowc}/bin/mango";
+        binPath = "${pkgs.mango}/bin/mango";
       };
       hyprland = {
         prettyName = "Hyprland";
@@ -37,10 +38,11 @@
   programs.git.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
-#  programs.waybar.enable = true;
+  #  programs.waybar.enable = true;
   # programs.hyprland.xwayland.enable = true;
   # programs.hyprland.systemd.setPath.enable = true;
   programs.tmux.enable = true;
   programs.xwayland.enable = true;
   programs.mtr.enable = true;
+  programs.gamemode.enable = true;
 }

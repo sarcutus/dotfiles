@@ -20,6 +20,7 @@
     #    pkgs.redshift
     #    pkgs.noctalia-shell
     pkgs.tuigreet
+    pkgs.gimp2-with-plugins
     pkgs.proton-vpn
     pkgs.code-cursor
     pkgs.blackbox-terminal
@@ -31,6 +32,9 @@
     pkgs.nwg-look
     pkgs.nyx
     pkgs.yazi
+    pkgs.signal-desktop
+    pkgs.tilix
+    pkgs.tilda
     pkgs.ut1999
     pkgs.xwayland-satellite
     pkgs.gnome-weather
@@ -39,6 +43,8 @@
     pkgs.tor
     pkgs.easyeffects
     #    pkgs.regreet
+    (pkgs.callPackage ./helium-pkg/default.nix {})
+    pkgs.sysstat
     pkgs.nixfmt
     pkgs.claude-code
     pkgs.codeblocks
@@ -219,12 +225,13 @@
     pkgs.swayidle
     pkgs.microsoft-edge
     pkgs.hyprlock
-    pkgs.mangowc
+    pkgs.mango
     #    pkgs.wezterm
     pkgs.mpd-mpris
-    pkgs.qemu_full
-    pkgs.qemu_kvm
+    # pkgs.qemu_full
+    # pkgs.qemu_kvm
     pkgs.virt-manager
     pkgs.spice-gtk
+    pkgs.OVMF
   ];
 }

@@ -44,6 +44,8 @@
     "electron-39.8.10"
   ];
 
+  nixpkgs.config.rocmSupport = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -106,6 +108,9 @@
       "wheel"
       "networkmanager"
       "sudo"
+      "libvirtd"
+      "qemu"
+      "kvm"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
@@ -146,7 +151,9 @@
     };
   };
   # virtualisation.vmware.host.enable = true;
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    };
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
@@ -174,7 +181,7 @@
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-  # started in user sessions.
+  environment.etc."profile.d/vte.sh".source = "${pkgs.vte}/etc/profile.d/vte.sh";
 
   # Enable the OpenSSH daemon.
 
