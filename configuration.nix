@@ -5,7 +5,6 @@
   config,
   lib,
   pkgs,
-  hyprlandPlugins,
   inputs,
   runCommand,
   ...
@@ -18,14 +17,13 @@
     ./packages.nix
     ./services.nix
     ./programs.nix
+    ./kernel_packages.nix
     #    ./vim.nix
     #    ./crystal-remix-icon-theme.nix
     #    ./cachix.nix
   ];
 
   home-manager.users.sarcutus.imports = [ ./home.nix ];
-
-  boot.kernelModules = [ "amdgpu" ];
 
   hardware.amdgpu = {
     opencl.enable = true;
@@ -38,6 +36,8 @@
       device = "/dev/nvme0n1p2";
     }
   ];
+  boot.kernel.sysctl."vm.swappiness" = 30;
+
   hardware.bluetooth.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -49,13 +49,13 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "Sarcutusdevice02"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
+  networking.bridges.br0.interfaces = [ "enp1s0" ];
+  networking.interfaces.br0.useDHCP = true;
   # networking.useDHCP = true;
   # systemd.network.enable = true;
 
@@ -153,11 +153,24 @@
   # virtualisation.vmware.host.enable = true;
   virtualisation.libvirtd = {
     enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
     };
+  };
+    
+  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-theme-name = "gruvbox-dark"
+  '';
+
+  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
+    gtk-theme-name = "gruvbox-dark"
+  '';
 
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland";
+    GTK_THEME = "gruvbox-dark";
     #    CMAKE_MAKE_PROGRAM = "cmake";
     #    CMAKE_C_COMPILER = "gcc";
     #    CMAKE_CXX_COMPILER = "gcc";

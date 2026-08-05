@@ -22,17 +22,17 @@
         comment = "Mango Wayland Compositor under UWSM";
         binPath = "${pkgs.mango}/bin/mango";
       };
-      hyprland = {
-        prettyName = "Hyprland";
-        binPath = "${pkgs.hyprland}/bin/hyprland";
-      };
     };
   };
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
-  programs.niri.enable = true;
+
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+  };
   programs.steam.enable = true;
   programs.zsh.autosuggestions.enable = true;
   programs.git.enable = true;

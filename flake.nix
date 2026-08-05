@@ -12,6 +12,11 @@
       url = "git+https://github.com/nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-desktop = {
+      url = "git+https://github.com/k3d3/claude-desktop-linux-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     mangowc = {
       url = "git+https://github.com/DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +41,10 @@
 #     url = "github:Daholli/hy3";
 #      inputs.hyprland.follows = "hyprland";
 #    };
+    niri = {
+      url = "git+https://github.com/sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia = {
       url = "github:noctalia-dev/noctalia/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +52,9 @@
     wezterm = {
       url = "git+https://github.com/wezterm/wezterm?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    llm-agents = {
+      url = "git+https://github.com/numtide/llm-agents.nix";
     };
 };  
   outputs = inputs @ {
@@ -53,6 +65,8 @@
     home-manager,
     mangowc,
     noctalia,
+    niri,
+    llm-agents,
     wezterm,
 #    hyprland,
 #    hyprland-plugins,

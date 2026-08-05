@@ -19,11 +19,17 @@
     pkgs.gruvbox-dark-gtk
     #    pkgs.redshift
     #    pkgs.noctalia-shell
+    pkgs.libdisplay-info
+    pkgs.taskwarrior3
+    pkgs.taskwarrior-tui
+    pkgs.vimPlugins.taskwarrior3
     pkgs.tuigreet
     pkgs.gimp2-with-plugins
+    pkgs.gamescope
     pkgs.proton-vpn
     pkgs.code-cursor
     pkgs.blackbox-terminal
+    pkgs.steam-run
     pkgs.libvirt
     pkgs.themechanger
     pkgs.borgmatic
@@ -77,7 +83,7 @@
     pkgs.hwinfo
     # pkgs.python312
     pkgs.python314
-    #    pkgs.niri
+    # pkgs.niri
     pkgs.bottom
     pkgs.v4l-utils
     pkgs.gcc
@@ -226,12 +232,15 @@
     pkgs.microsoft-edge
     pkgs.hyprlock
     pkgs.mango
+    pkgs.mangohud
     #    pkgs.wezterm
     pkgs.mpd-mpris
     # pkgs.qemu_full
-    # pkgs.qemu_kvm
+    pkgs.qemu_kvm
     pkgs.virt-manager
     pkgs.spice-gtk
-    pkgs.OVMF
+    pkgs.btrfs-assistant
+    pkgs.btrfs-list
+    pkgs.btrfs-heatmap
   ];
 }
