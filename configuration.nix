@@ -54,7 +54,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
-  networking.bridges.br0.interfaces = [ "enp1s0" ];
+  # networking.bridges.br0.interfaces = [ "enp1s0" ];
   networking.interfaces.br0.useDHCP = true;
   # networking.useDHCP = true;
   # systemd.network.enable = true;
@@ -158,19 +158,10 @@
     };
   };
     
-  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-theme-name = "gruvbox-dark"
-  '';
-
-  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
-    gtk-theme-name = "gruvbox-dark"
-  '';
-
   environment.variables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORM = "wayland";
-    GTK_THEME = "gruvbox-dark";
+    GTK_THEME = "BonaFides-Nord-Dark-GTK";
     #    CMAKE_MAKE_PROGRAM = "cmake";
     #    CMAKE_C_COMPILER = "gcc";
     #    CMAKE_CXX_COMPILER = "gcc";

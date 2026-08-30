@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchurl,
+  gitUpdater,
   appimageTools,
   appimage-run,
   makeWrapper
@@ -16,13 +17,13 @@ let
     sha256 = "sha256:24ce139b82def5771fab77c5304bbf0c82baf35ec5120050dab4b0634f77174e";
   };
 
-    appimageContents = appimageTools.extractType2 {
+    appimageContents = appimageTools.extract {
       inherit pname version src;
     };
 
 in
 
-    stdenv.mkDerivation rec {
+  stdenv.mkDerivation rec {
       inherit pname version;
       dontUnpack = true;
       dontBuild = true;
@@ -48,6 +49,13 @@ in
 
       runHook postInstall
     '';
+  
+  # ...
+
+    passthru.updateScript = gitUpdater {
+    # Helium's tags look like "0.32.0.1" etc — no "v" prefix to strip, so
+    # the default should just work. Set rev-prefix here if that's wrong.
+    };
 
   meta = with lib; {
     description = "A privacy-focused, no nonsense web browser";

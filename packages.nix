@@ -16,9 +16,17 @@
     # pkgs.lightdm
     pkgs.eog
     #    pkgs.noctalia-qs
+    pkgs.zellij-unwrapped
+    pkgs.jrnl
     pkgs.gruvbox-dark-gtk
+    pkgs.orchis-theme
+    pkgs.gruvbox-kvantum
+    pkgs.gtk4
+    pkgs.gtk3
+    pkgs.qt6Packages.qtstyleplugin-kvantum
     #    pkgs.redshift
     #    pkgs.noctalia-shell
+    pkgs.nix-update
     pkgs.libdisplay-info
     pkgs.taskwarrior3
     pkgs.taskwarrior-tui
@@ -32,10 +40,12 @@
     pkgs.steam-run
     pkgs.libvirt
     pkgs.themechanger
+    pkgs.borgbackup
     pkgs.borgmatic
     pkgs.blueman
     pkgs.bluetuith
     pkgs.nwg-look
+    pkgs.nh
     pkgs.nyx
     pkgs.yazi
     pkgs.signal-desktop

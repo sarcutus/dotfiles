@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 {
@@ -74,12 +75,69 @@
 
   services.mpd-mpris.enable = true;
 
+#  gtk = {
+#    enable = true;
+#    gtk4 = {
+#      enable = true;
+#      theme.name = "gruvbox-dark";
+#    };
+#  };
+  
   programs.wezterm = {
     enable = true;
     #    enableBashIntegration = true;  # Optional: Enable Bash integration
     enableZshIntegration = true; # Optional: Enable Zsh integration
     package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    #    extraConfig = builtins.readFile (./.config/wezterm/wezterm.lua);
+    extraConfig = '' 
+         -- config_builder() gives you nicer error messages than a plain table;
+         -- falls back to {} on older WezTerm versions that lack it.
+         local config = wezterm.config_builder and wezterm.config_builder()
+
+         --------------------------------------------------------------------
+         -- Persistent mux session (Unix domain)
+         --------------------------------------------------------------------
+         -- Spins up a background mux server that owns your shells independently
+         -- of the GUI window, so closing WezTerm (or it crashing) doesn't kill
+         -- anything running inside it.
+         config.unix_domains = {
+           { name = 'unix' },
+         }
+
+         -- Auto-connect to that domain on startup -- equivalent to always
+         -- launching with `wezterm connect unix`. Remove this line if you'd
+         -- rather connect manually with `wezterm connect unix` when you want to.
+         config.default_gui_startup_args = { 'connect', 'unix' }
+
+         --------------------------------------------------------------------
+         -- Launch straight into Zellij
+         --------------------------------------------------------------------
+         -- `attach -c main` attaches to a session named "main" if one exists
+         -- (including resurrecting an exited one), or creates it if not.
+         --
+         -- IMPORTANT: use the ABSOLUTE path to the zellij binary, not just
+         -- "zellij". WezTerm execs default_prog directly without going through
+         -- a login shell, so it won't necessarily see your normal PATH -- this
+         -- is especially common on NixOS, where a GUI-launched WezTerm process
+         -- may not have ~/.nix-profile/bin (or similar) on PATH at all.
+         --
+         -- Find your path with: which zellij
+         config.default_prog = { '${pkgs.zellij}/bin/zellij', 'attach', '-c', 'main' }
+
+         --------------------------------------------------------------------
+         -- A few everyday defaults -- change or delete any of these freely
+         --------------------------------------------------------------------
+         config.font_size = 12.0
+         config.hide_tab_bar_if_only_one_tab = false
+         config.window_close_confirmation = 'NeverPrompt'
+         config.scrollback_lines = 500
+
+         return config
+  '';
+};
+
+  programs.zellij = {
+    enable = true;
+    package = pkgs.zellij;  # pin this to a specific nixpkgs input/overlay if you want it to never move
   };
 
   qt = {
