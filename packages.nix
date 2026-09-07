@@ -7,6 +7,7 @@
   environment.systemPackages = [
     pkgs.git
     pkgs.git-credential-manager
+    pkgs.gh
     pkgs.lazygit
     pkgs.yaziPlugins.lazygit
     pkgs.vimPlugins.lazygit-nvim
