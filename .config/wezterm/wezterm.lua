@@ -5,7 +5,7 @@ local config = {}
 config.enable_scroll_bar = true
 config.min_scroll_bar_height = "2cell"
 config.color_scheme = "Batman"
-config.default_prog = { "zellij", "attach", "-c", "main" }
+-- config.default_prog = { "zellij", "attach", "-c", "main" }
 config.enable_wayland = true
 
 front_end = "OpenGL"

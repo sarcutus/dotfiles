@@ -29,6 +29,8 @@
     enableSSHSupport = true;
   };
 
+  programs.wireshark.enable = true;
+  
   programs.niri = {
     enable = true;
     package = pkgs.niri;

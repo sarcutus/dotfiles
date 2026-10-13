@@ -38,8 +38,14 @@
   ];
   boot.kernel.sysctl."vm.swappiness" = 30;
 
-  hardware.bluetooth.enable = true;
-
+  hardware.bluetooth = {
+    enable = true;
+    settings.General = {
+      ControllerMode = "dual";
+      Experimental = true;
+      KernelExperimental = "6fbaf188-05e0-496a-9885-d6ddfdb4e03e";
+    };
+  };
   nixpkgs.config.permittedInsecurePackages = [
     "electron-39.8.10"
   ];
@@ -47,8 +53,13 @@
   nixpkgs.config.rocmSupport = true;
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
 
   networking.hostName = "Sarcutusdevice02"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -150,7 +161,7 @@
       default = [ "gtk" ];
     };
   };
-  # virtualisation.vmware.host.enable = true;
+  virtualisation.vmware.host.enable = true;
   virtualisation.libvirtd = {
     enable = true;
     qemu = {

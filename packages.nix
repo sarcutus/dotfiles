@@ -17,7 +17,11 @@
     # pkgs.lightdm
     pkgs.eog
     #    pkgs.noctalia-qs
+    pkgs.smartmontools
+    pkgs.pciutils
+    pkgs.nvme-cli
     pkgs.zellij-unwrapped
+    pkgs.cmatrix
     pkgs.jrnl
     pkgs.gruvbox-dark-gtk
     pkgs.orchis-theme
@@ -27,10 +31,12 @@
     pkgs.qt6Packages.qtstyleplugin-kvantum
     #    pkgs.redshift
     #    pkgs.noctalia-shell
+    pkgs.e2fsprogs
     pkgs.nix-update
     pkgs.libdisplay-info
     pkgs.taskwarrior3
     pkgs.taskwarrior-tui
+    pkgs.sbctl
     pkgs.vimPlugins.taskwarrior3
     pkgs.tuigreet
     pkgs.gimp2-with-plugins

@@ -56,6 +56,9 @@
     llm-agents = {
       url = "git+https://github.com/numtide/llm-agents.nix";
     };
+    lanzaboote = {
+      url = "git+https://github.com/nix-community/lanzaboote";
+    };
 };  
   outputs = inputs @ {
     self,
@@ -68,6 +71,7 @@
     niri,
     llm-agents,
     wezterm,
+    lanzaboote,
 #    hyprland,
 #    hyprland-plugins,
 #    hy3,
@@ -80,6 +84,7 @@
 #          {
 #            programs.mango.enable = true;
 #          }
+          lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           {
             home-manager = {

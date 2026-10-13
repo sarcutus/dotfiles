@@ -56,6 +56,9 @@
     plugins = with pkgs.vimPlugins; [ vim-airline ];
   };
 
+  programs.cava.enable = true;
+  programs.cava.package = pkgs.cava;
+
   programs.eza = {
     enable = true;
     git = true;
@@ -121,7 +124,7 @@
          -- may not have ~/.nix-profile/bin (or similar) on PATH at all.
          --
          -- Find your path with: which zellij
-         config.default_prog = { '${pkgs.zellij}/bin/zellij', 'attach', '-c', 'main' }
+         -- config.default_prog = { '${pkgs.zellij}/bin/zellij', 'attach', '-c', 'main' }
 
          --------------------------------------------------------------------
          -- A few everyday defaults -- change or delete any of these freely

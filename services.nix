@@ -18,6 +18,11 @@
     alsa.enable = true;
     # alsa.enable.support32Bit = true;
   };
+#  services.pipewire.wireplumber.extraConfig."51-bluez-le" = {
+#    "monitor.bluez.properties" = {
+#      "bluez5.roles" = [ "a2dp_sink" "a2dp_source" "bap_sink" "bap_source" "hfp_hf" "hfp_ag" ];
+#    };
+#  };
 
   services.tlp = {
     enable = true;
@@ -30,8 +35,8 @@
     enable = true;
     settings = {
       default_session = {
-        command = "tuigreet --remember --remember-user-session";
-        user = "sarcutus";
+        command = "tuigreet --remember --remember-session --cmd niri-session";
+        user = "greeter";
       };
     };
   };
