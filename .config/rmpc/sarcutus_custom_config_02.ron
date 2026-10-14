@@ -137,6 +137,15 @@
             (value: "genre",       label: "Genre"),
         ],
     ),
+    cava: (
+	framerate: 60,
+	autosens: true,
+	sensitivity: 100,
+	input: (
+	    method: Pipewire,
+	    source: "auto",
+	),
+    ),
     artists: (
         album_display_mode: SplitByDate,
         album_sort_by: Date,
